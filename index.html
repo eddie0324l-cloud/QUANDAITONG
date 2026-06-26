@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全貸通｜全台民間小額借貸服務 — 急速金・鈔安心・貸好運</title>
+<meta name="description" content="全貸通提供全台（含離島）個人小額資金借貸服務，旗下急速金、鈔安心、貸好運三大方案自由選擇，快速審核、安心透明，線上諮詢立即辦理。">
+<meta name="keywords" content="小額借貸,民間借貸,個人貸款,小額借款,快速放款,全台借款,離島借款,急速金,鈔安心,貸好運,全貸通,資金週轉,急需用錢,免擔保借款,信用貸款,線上借款">
+<meta name="robots" content="index, follow">
+<meta name="author" content="全貸通">
+<link rel="canonical" href="https://www.quandai.com.tw/">
+<!-- Open Graph -->
+<meta property="og:title" content="全貸通｜全台民間小額借貸服務">
+<meta property="og:description" content="全貸通提供全台個人小額資金借貸，三大方案自由選擇，快速審核、安心透明。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "全貸通",
+  "description": "全貸通提供全台（含離島）個人小額資金借貸服務，旗下急速金、鈔安心、貸好運三大方案自由選擇。",
+  "areaServed": {
+    "@type": "Country",
+    "name": "台灣"
+  },
+  "openingHours": "Mo-Su 11:00-22:00",
+  "serviceType": ["小額借貸", "民間借貸", "個人貸款"],
+  "brand": [
+    {"@type": "Brand", "name": "急速金"},
+    {"@type": "Brand", "name": "鈔安心"},
+    {"@type": "Brand", "name": "貸好運"}
+  ]
+}
+</script>
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* === RESET & BASE === */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0b1d3a;--navy-light:#132d54;--navy-dark:#060f1f;
+  --gold:#c8a34e;--gold-light:#e0c675;--gold-dark:#a07c2a;
+  --cream:#faf6ed;--cream-dark:#f0e8d4;
+  --white:#ffffff;--text:#2c2c2c;--text-light:#6b6b6b;
+  --radius:12px;--radius-lg:20px;
+  --shadow:0 4px 24px rgba(11,29,58,.08);
+  --shadow-lg:0 12px 48px rgba(11,29,58,.12);
+  --transition:all .3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--cream);line-height:1.8;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* === NAV === */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,29,58,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,163,78,.15);transition:var(--transition)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1140px;margin:0 auto;padding:0 24px}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif TC',serif;font-weight:900;font-size:18px;color:var(--navy)}
+.nav-logo-text{font-family:'Noto Serif TC',serif;font-weight:700;font-size:22px;color:var(--white);letter-spacing:2px}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:rgba(255,255,255,.75);font-size:15px;font-weight:500;transition:var(--transition);position:relative}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--gold);transition:var(--transition)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy)!important;padding:10px 24px;border-radius:8px;font-weight:700;font-size:14px;letter-spacing:1px}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(200,163,78,.4)}
+.nav-mobile{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.nav-mobile span{width:24px;height:2px;background:var(--white);transition:var(--transition)}
+
+/* === HERO === */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;background:var(--navy);overflow:hidden;padding-top:72px}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(200,163,78,.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 20%,rgba(19,45,84,.6) 0%,transparent 50%)}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top,var(--navy),transparent)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero-content{padding:40px 0}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,163,78,.12);border:1px solid rgba(200,163,78,.25);border-radius:100px;padding:8px 20px;margin-bottom:28px}
+.hero-badge-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+.hero-badge span{color:var(--gold-light);font-size:13px;font-weight:500;letter-spacing:1px}
+.hero h1{font-size:clamp(36px,5vw,56px);color:var(--white);font-weight:900;margin-bottom:20px;letter-spacing:2px}
+.hero h1 .gold{color:var(--gold);position:relative}
+.hero-sub{font-size:18px;color:rgba(255,255,255,.65);margin-bottom:36px;max-width:480px;line-height:1.9}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy);padding:16px 36px;border-radius:10px;font-weight:700;font-size:16px;transition:var(--transition);border:none;cursor:pointer}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,163,78,.35)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.25);color:var(--white);padding:16px 36px;border-radius:10px;font-weight:500;font-size:16px;transition:var(--transition)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-card{width:380px;height:460px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);backdrop-filter:blur(20px);padding:40px;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(200,163,78,.06) 0%,transparent 50%)}
+.hero-card-label{font-size:13px;color:rgba(255,255,255,.4);letter-spacing:2px;margin-bottom:16px}
+.hero-card-amount{font-family:'Noto Serif TC',serif;font-size:48px;font-weight:900;color:var(--gold);margin-bottom:8px}
+.hero-card-unit{font-size:16px;color:rgba(255,255,255,.5);margin-bottom:32px}
+.hero-card-stats{display:flex;flex-direction:column;gap:20px}
+.hero-stat{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06)}
+.hero-stat-label{font-size:14px;color:rgba(255,255,255,.45)}
+.hero-stat-value{font-size:15px;color:var(--gold-light);font-weight:600}
+.hero-float{position:absolute;background:rgba(11,29,58,.85);backdrop-filter:blur(12px);border:1px solid rgba(200,163,78,.2);border-radius:var(--radius);padding:16px 20px;animation:float 6s ease-in-out infinite}
+.hero-float-1{top:20px;right:-30px;animation-delay:0s}
+.hero-float-2{bottom:40px;left:-40px;animation-delay:2s}
+.hero-float-icon{font-size:24px;margin-bottom:4px}
+.hero-float-text{font-size:12px;color:rgba(255,255,255,.6)}
+.hero-float-val{font-size:16px;color:var(--gold-light);font-weight:700}
+
+/* === TRUST BAR === */
+.trust-bar{background:var(--white);border-bottom:1px solid rgba(0,0,0,.05);padding:28px 0}
+.trust-items{display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:12px}
+.trust-icon{width:48px;height:48px;background:var(--cream);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.trust-text strong{display:block;font-size:15px;font-weight:700;color:var(--navy)}
+.trust-text span{font-size:13px;color:var(--text-light)}
+
+/* === SECTION COMMON === */
+.section{padding:100px 0}
+.section-header{text-align:center;margin-bottom:64px}
+.section-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(200,163,78,.1);color:var(--gold-dark);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:1px;margin-bottom:16px}
+.section-title{font-size:clamp(28px,3.5vw,42px);color:var(--navy);font-weight:900;margin-bottom:16px}
+.section-desc{font-size:17px;color:var(--text-light);max-width:600px;margin:0 auto;line-height:1.9}
+
+/* === ABOUT === */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-image{position:relative;border-radius:var(--radius-lg);overflow:hidden;height:480px;background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:center}
+.about-image-inner{text-align:center;padding:40px}
+.about-image-icon{font-size:80px;margin-bottom:20px;filter:grayscale(.2)}
+.about-image-text{font-family:'Noto Serif TC',serif;font-size:32px;font-weight:900;color:var(--gold);letter-spacing:4px}
+.about-image-sub{font-size:14px;color:rgba(255,255,255,.5);margin-top:8px;letter-spacing:2px}
+.about-content h2{font-size:36px;color:var(--navy);margin-bottom:20px;font-weight:900}
+.about-content p{color:var(--text-light);margin-bottom:16px;font-size:16px;line-height:2}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.about-feat{display:flex;align-items:flex-start;gap:12px;padding:16px;background:var(--cream);border-radius:var(--radius)}
+.about-feat-icon{width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--white)}
+.about-feat strong{display:block;font-size:14px;color:var(--navy);margin-bottom:2px}
+.about-feat span{font-size:13px;color:var(--text-light)}
+
+/* === BRANDS === */
+.brands{background:var(--cream)}
+.brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.brand-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);position:relative;border:1px solid rgba(0,0,0,.04)}
+.brand-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.brand-card-top{padding:36px 32px 28px;position:relative}
+.brand-card-accent{position:absolute;top:0;left:0;right:0;height:4px}
+.brand-card:nth-child(1) .brand-card-accent{background:linear-gradient(90deg,#e74c3c,#e67e22)}
+.brand-card:nth-child(2) .brand-card-accent{background:linear-gradient(90deg,#2ecc71,#27ae60)}
+.brand-card:nth-child(3) .brand-card-accent{background:linear-gradient(90deg,#3498db,#2980b9)}
+.brand-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px}
+.brand-card:nth-child(1) .brand-icon{background:linear-gradient(135deg,#fff5f5,#ffe0d0)}
+.brand-card:nth-child(2) .brand-icon{background:linear-gradient(135deg,#f0fff4,#d4edda)}
+.brand-card:nth-child(3) .brand-icon{background:linear-gradient(135deg,#f0f7ff,#d6eaff)}
+.brand-name{font-family:'Noto Serif TC',serif;font-size:26px;font-weight:900;color:var(--navy);margin-bottom:8px}
+.brand-slogan{font-size:14px;color:var(--gold-dark);font-weight:600;margin-bottom:16px;letter-spacing:1px}
+.brand-desc{font-size:14px;color:var(--text-light);line-height:1.9;margin-bottom:20px}
+.brand-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.brand-tag{background:var(--cream);color:var(--text-light);padding:6px 14px;border-radius:100px;font-size:12px;font-weight:500}
+.brand-card-bottom{padding:0 32px 32px}
+.brand-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;border-radius:10px;font-weight:700;font-size:15px;transition:var(--transition);border:none;cursor:pointer}
+.brand-card:nth-child(1) .brand-btn{background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff}
+.brand-card:nth-child(2) .brand-btn{background:linear-gradient(135deg,#2ecc71,#27ae60);color:#fff}
+.brand-card:nth-child(3) .brand-btn{background:linear-gradient(135deg,#3498db,#2980b9);color:#fff}
+.brand-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.brand-btn svg{width:22px;height:22px;fill:currentColor}
+
+/* === PROCESS === */
+.process{background:var(--navy);position:relative;overflow:hidden}
+.process::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,163,78,.06) 0%,transparent 60%)}
+.process .section-title{color:var(--white)}
+.process .section-desc{color:rgba(255,255,255,.5)}
+.process .section-tag{background:rgba(200,163,78,.15);color:var(--gold-light)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:2}
+.process-step{text-align:center;padding:36px 24px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-lg);transition:var(--transition);position:relative}
+.process-step:hover{background:rgba(255,255,255,.06);border-color:rgba(200,163,78,.2)}
+.process-num{font-family:'Noto Serif TC',serif;font-size:48px;font-weight:900;color:rgba(200,163,78,.15);margin-bottom:12px}
+.process-step-icon{font-size:36px;margin-bottom:16px}
+.process-step h4{font-size:18px;color:var(--white);margin-bottom:8px;font-weight:700}
+.process-step p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.8}
+
+/* === ADVANTAGES === */
+.advantages{background:var(--white)}
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.adv-card{padding:36px;border-radius:var(--radius-lg);border:1px solid rgba(0,0,0,.06);transition:var(--transition);position:relative;overflow:hidden}
+.adv-card:hover{border-color:rgba(200,163,78,.3);box-shadow:var(--shadow)}
+.adv-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--gold),var(--gold-dark));opacity:0;transition:var(--transition)}
+.adv-card:hover::before{opacity:1}
+.adv-icon{font-size:36px;margin-bottom:20px}
+.adv-card h4{font-size:19px;color:var(--navy);margin-bottom:10px;font-weight:700}
+.adv-card p{font-size:14px;color:var(--text-light);line-height:1.9}
+
+/* === FAQ === */
+.faq{background:var(--cream)}
+.faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:var(--white);border-radius:var(--radius);border:1px solid rgba(0,0,0,.05);overflow:hidden;transition:var(--transition)}
+.faq-item.active{border-color:rgba(200,163,78,.3);box-shadow:var(--shadow)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:22px 28px;cursor:pointer;font-weight:600;font-size:16px;color:var(--navy);transition:var(--transition)}
+.faq-q:hover{color:var(--gold-dark)}
+.faq-arrow{width:24px;height:24px;transition:transform .3s ease;color:var(--gold)}
+.faq-item.active .faq-arrow{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease}
+.faq-a-inner{padding:0 28px 22px;font-size:15px;color:var(--text-light);line-height:2}
+
+/* === COVERAGE === */
+.coverage{background:var(--white)}
+.coverage-content{text-align:center}
+.coverage-map{max-width:800px;margin:0 auto 40px;position:relative;background:var(--cream);border-radius:var(--radius-lg);padding:48px;border:1px solid rgba(0,0,0,.05)}
+.coverage-regions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:24px}
+.coverage-tag{background:var(--white);border:1px solid rgba(0,0,0,.08);padding:8px 18px;border-radius:100px;font-size:14px;color:var(--navy);font-weight:500;transition:var(--transition)}
+.coverage-tag:hover{border-color:var(--gold);color:var(--gold-dark)}
+.coverage-note{font-size:15px;color:var(--text-light);margin-top:24px;line-height:1.9}
+
+/* === CTA === */
+.cta{background:linear-gradient(135deg,var(--navy),var(--navy-light));padding:80px 0;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 50% 50%,rgba(200,163,78,.06) 0%,transparent 40%)}
+.cta h2{font-size:clamp(28px,4vw,40px);color:var(--white);margin-bottom:16px;font-weight:900;position:relative;z-index:2}
+.cta p{font-size:17px;color:rgba(255,255,255,.55);margin-bottom:36px;position:relative;z-index:2}
+.cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;position:relative;z-index:2}
+
+/* === FOOTER === */
+.footer{background:var(--navy-dark);padding:60px 0 32px;border-top:1px solid rgba(200,163,78,.1)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.footer-brand-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Noto Serif TC',serif;font-weight:900;font-size:16px;color:var(--navy)}
+.footer-brand-text{font-family:'Noto Serif TC',serif;font-weight:700;font-size:20px;color:var(--white);letter-spacing:2px}
+.footer-desc{font-size:14px;color:rgba(255,255,255,.4);line-height:1.9;margin-bottom:16px}
+.footer h4{font-size:15px;color:var(--gold);margin-bottom:20px;font-weight:700;letter-spacing:1px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.footer-links li a{font-size:14px;color:rgba(255,255,255,.45);transition:var(--transition)}
+.footer-links li a:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.3)}
+.footer-legal{font-size:13px;color:rgba(255,255,255,.3)}
+
+/* === ANIMATIONS === */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* === RESPONSIVE === */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}
+  .hero-sub{margin:0 auto 36px}
+  .hero-btns{justify-content:center}
+  .hero-visual{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .about-image{height:320px}
+  .brands-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:repeat(2,1fr)}
+  .adv-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--navy);flex-direction:column;padding:24px;gap:20px;border-top:1px solid rgba(255,255,255,.06)}
+  .nav-links.open{display:flex}
+  .nav-mobile{display:flex}
+  .hero{min-height:auto;padding:120px 0 80px}
+  .hero h1{font-size:32px}
+  .section{padding:64px 0}
+  .trust-items{gap:24px}
+  .process-steps{grid-template-columns:1fr}
+  .about-features{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">貸</div>
+      <span class="nav-logo-text">全貸通</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">關於我們</a>
+      <a href="#brands">服務方案</a>
+      <a href="#process">申辦流程</a>
+      <a href="#advantages">服務優勢</a>
+      <a href="#faq">常見問題</a>
+      <a href="#brands" class="nav-cta">立即諮詢</a>
+    </div>
+    <div class="nav-mobile" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <span>全台服務・含離島・全年無休</span>
+        </div>
+        <h1>資金週轉<br>不再<span class="gold">煩惱</span></h1>
+        <p class="hero-sub">全貸通整合旗下三大借貸品牌，為您量身打造最適合的資金方案。無論您在台灣本島或離島，都能享受快速、透明、安心的借貸服務。</p>
+        <div class="hero-btns">
+          <a href="#brands" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            選擇方案
+          </a>
+          <a href="#process" class="btn-outline">了解流程</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-label">借款額度</div>
+          <div class="hero-card-amount">50萬</div>
+          <div class="hero-card-unit">最高可貸金額</div>
+          <div class="hero-card-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-label">審核速度</span>
+              <span class="hero-stat-value">最快30分鐘</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-label">撥款效率</span>
+              <span class="hero-stat-value">當天撥款</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-label">服務範圍</span>
+              <span class="hero-stat-value">全台含離島</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-label">營業時間</span>
+              <span class="hero-stat-value">11:00 - 22:00</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-float hero-float-1">
+          <div class="hero-float-icon">⚡</div>
+          <div class="hero-float-text">快速審核</div>
+          <div class="hero-float-val">30分鐘</div>
+        </div>
+        <div class="hero-float hero-float-2">
+          <div class="hero-float-icon">🛡️</div>
+          <div class="hero-float-text">資料保密</div>
+          <div class="hero-float-val">安心保障</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-icon">🏆</div>
+        <div class="trust-text"><strong>多年服務經驗</strong><span>深耕民間借貸市場</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">👥</div>
+        <div class="trust-text"><strong>數萬客戶信賴</strong><span>累計服務超過萬人次</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div class="trust-text"><strong>資料安全保密</strong><span>嚴格保護客戶隱私</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📍</div>
+        <div class="trust-text"><strong>全台皆可服務</strong><span>含澎湖、金門、馬祖</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image fade-up">
+        <div class="about-image-inner">
+          <div class="about-image-icon">🤝</div>
+          <div class="about-image-text">全貸通</div>
+          <div class="about-image-sub">QUAN DAI TONG</div>
+        </div>
+      </div>
+      <div class="about-content fade-up">
+        <h2>關於全貸通</h2>
+        <p>全貸通是台灣專業的民間小額資金借貸服務平台，致力於為有資金需求的個人提供快速、透明、安心的借貸解決方案。我們深知每個人在生活中都可能遇到臨時資金週轉的需求，因此打造了靈活的借貸方案，讓每位客戶都能找到適合自己的選擇。</p>
+        <p>我們旗下擁有<strong>「急速金」、「鈔安心」、「貸好運」</strong>三大服務品牌，各有不同的服務特色與優勢，客戶可以根據自身需求自由選擇最合適的方案。無論您身處台灣本島或離島，我們的服務網絡涵蓋全台，隨時為您提供協助。</p>
+        <div class="about-features">
+          <div class="about-feat">
+            <div class="about-feat-icon">⚡</div>
+            <div><strong>快速審核</strong><span>最快30分鐘完成</span></div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon">💰</div>
+            <div><strong>彈性額度</strong><span>依個人條件量身規劃</span></div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon">📱</div>
+            <div><strong>線上辦理</strong><span>免出門、免紙本</span></div>
+          </div>
+          <div class="about-feat">
+            <div class="about-feat-icon">🔐</div>
+            <div><strong>隱私保障</strong><span>資料嚴格保密</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="section brands" id="brands">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">✦ 三大服務品牌</div>
+      <h2 class="section-title">選擇最適合您的方案</h2>
+      <p class="section-desc">全貸通旗下三大品牌，各有專屬服務特色，點擊即可透過官方 Line 與專人聯繫，立即為您服務。</p>
+    </div>
+    <div class="brands-grid" id="brandsGrid">
+      <!-- JS will populate -->
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section process" id="process">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">✦ 簡易申辦流程</div>
+      <h2 class="section-title">四步驟輕鬆借款</h2>
+      <p class="section-desc">從諮詢到撥款，流程簡單透明，讓您快速獲得所需資金。</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step fade-up">
+        <div class="process-num">01</div>
+        <div class="process-step-icon">💬</div>
+        <h4>線上諮詢</h4>
+        <p>透過 Line 與專人聯繫，告知您的資金需求與基本資料。</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="process-num">02</div>
+        <div class="process-step-icon">📋</div>
+        <h4>方案評估</h4>
+        <p>專人根據您的條件，推薦最適合的借貸方案並說明詳細內容。</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="process-num">03</div>
+        <div class="process-step-icon">✅</div>
+        <h4>快速審核</h4>
+        <p>提交必要文件後，最快30分鐘即可完成審核程序。</p>
+      </div>
+      <div class="process-step fade-up">
+        <div class="process-num">04</div>
+        <div class="process-step-icon">💳</div>
+        <h4>當天撥款</h4>
+        <p>審核通過後立即撥款，資金快速入帳，解決您的燃眉之急。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADVANTAGES -->
+<section class="section advantages" id="advantages">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">✦ 服務優勢</div>
+      <h2 class="section-title">為什麼選擇全貸通？</h2>
+      <p class="section-desc">我們以客戶為核心，提供全方位優質借貸體驗。</p>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-card fade-up">
+        <div class="adv-icon">🚀</div>
+        <h4>极速審核撥款</h4>
+        <p>理解您對資金的迫切需求，我們簡化審核流程，最快30分鐘完成審核，當天即可撥款入帳，讓您不再為資金等待。</p>
+      </div>
+      <div class="adv-card fade-up">
+        <div class="adv-icon">📊</div>
+        <h4>透明費用結構</h4>
+        <p>所有費用項目清楚說明，絕無隱藏收費。在申辦前即為您完整規劃，讓每一筆費用都明明白白，安心借貸無負擔。</p>
+      </div>
+      <div class="adv-card fade-up">
+        <div class="adv-icon">🎯</div>
+        <h4>量身打造方案</h4>
+        <p>三大品牌各有特色，專人會根據您的借款金額、還款能力與需求，推薦最合適的方案，確保借貸體驗最佳化。</p>
+      </div>
+      <div class="adv-card fade-up">
+        <div class="adv-icon">🏝️</div>
+        <h4>全台服務無死角</h4>
+        <p>服務範圍涵蓋台灣本島各縣市，以及澎湖、金門、馬祖等離島地區，無論您在哪裡都能享受同等級的優質服務。</p>
+      </div>
+      <div class="adv-card fade-up">
+        <div class="adv-icon">🛡️</div>
+        <h4>隱私嚴格保護</h4>
+        <p>採用業界最高標準的資訊安全防護措施，所有客戶資料嚴格保密，絕不对外揭露，讓您安心辦理無後顧之憂。</p>
+      </div>
+      <div class="adv-card fade-up">
+        <div class="adv-icon">🕐</div>
+        <h4>彈性營業時間</h4>
+        <p>每週一至週日 11:00 至 22:00 提供服務，超長營業時間方便您在下班後或假日也能輕鬆諮詢辦理。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="section coverage" id="coverage">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">✦ 服務範圍</div>
+      <h2 class="section-title">全台服務・離島亦可辦理</h2>
+      <p class="section-desc">無論您身在何處，全貸通都能為您提供即時的資金協助。</p>
+    </div>
+    <div class="coverage-content fade-up">
+      <div class="coverage-map">
+        <div style="font-size:64px;margin-bottom:16px">🗺️</div>
+        <h3 style="font-family:'Noto Serif TC',serif;font-size:24px;color:var(--navy);margin-bottom:8px">服務涵蓋全台各縣市</h3>
+        <p style="color:var(--text-light);font-size:15px">本島與離島均提供完整的線上申辦服務</p>
+        <div class="coverage-regions">
+          <span class="coverage-tag">台北市</span>
+          <span class="coverage-tag">新北市</span>
+          <span class="coverage-tag">桃園市</span>
+          <span class="coverage-tag">台中市</span>
+          <span class="coverage-tag">台南市</span>
+          <span class="coverage-tag">高雄市</span>
+          <span class="coverage-tag">基隆市</span>
+          <span class="coverage-tag">新竹市</span>
+          <span class="coverage-tag">嘉義市</span>
+          <span class="coverage-tag">新竹縣</span>
+          <span class="coverage-tag">苗栗縣</span>
+          <span class="coverage-tag">彰化縣</span>
+          <span class="coverage-tag">南投縣</span>
+          <span class="coverage-tag">雲林縣</span>
+          <span class="coverage-tag">嘉義縣</span>
+          <span class="coverage-tag">屏東縣</span>
+          <span class="coverage-tag">宜蘭縣</span>
+          <span class="coverage-tag">花蓮縣</span>
+          <span class="coverage-tag">台東縣</span>
+          <span class="coverage-tag">澎湖縣</span>
+          <span class="coverage-tag">金門縣</span>
+          <span class="coverage-tag">連江縣</span>
+        </div>
+      </div>
+      <p class="coverage-note">所有地區均提供線上申辦服務，無需親自臨櫃，透過 Line 即可完成全部申辦流程。<br>離島地區客戶同樣享有與本島一致的服務品質與撥款速度。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">✦ 常見問題</div>
+      <h2 class="section-title">您想知道的都在這裡</h2>
+      <p class="section-desc">整理了客戶最常詢問的問題，幫助您快速了解服務內容。</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>申辦借款需要準備什麼文件？</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">一般來說，您需要準備身分證正反面影本、存摺封面影本，以及近期的薪資證明或收入證明。實際所需文件會根據您選擇的方案有所不同，專人會在諮詢時為您詳細說明。</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>從申請到撥款需要多長時間？</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">在文件齊全的情況下，審核最快可在30分鐘內完成，通過後當天即可撥款入帳。實際時間依個人條件及文件完整度而有所不同。</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>離島地區也可以辦理嗎？</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">可以的！我們的服務範圍涵蓋全台，包含澎湖、金門、馬祖等離島地區。全程線上辦理，無需親自臨櫃，離島客戶享有與本島相同的服務品質。</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>急速金、鈔安心、貸好運有什麼差別？</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">三個品牌各有服務特色：「急速金」主打快速審核與撥款，適合急需資金的情況；「鈔安心」強調透明費用與穩定還款規劃，適合注重安心感的客戶；「貸好運」提供彈性額度與多元方案，適合有各種不同需求的客戶。您可以根據自身需求選擇最適合的品牌。</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>我的個人資料會被保密嗎？</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">絕對保密。我們採用嚴格的資料保護機制，所有客戶個資僅用於借款審核用途，絕不會提供給任何第三方。您可以放心將資料交給我們。</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>營業時間是什麼時候？假日可以辦理嗎？</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">我們的服務時間為每週一至週日 11:00 至 22:00，包含國定假日在內皆可辦理。超長營業時間方便您在下班後或週末也能輕鬆諮詢。</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <span>需要擔保品才能借款嗎？</span>
+          <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-a"><div class="faq-a-inner">不一定需要。我們提供免擔保品的借款方案，依據您的個人信用條件與收入狀況進行評估。實際方案內容請透過 Line 與專人諮詢確認。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container">
+    <h2>需要資金協助？立即聯繫我們</h2>
+    <p>選擇您偏好的服務品牌，透過官方 Line 與專人一对一諮詢</p>
+    <div class="cta-btns" id="ctaBtns">
+      <!-- JS will populate -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="footer-brand-icon">貸</div>
+          <span class="footer-brand-text">全貸通</span>
+        </div>
+        <p class="footer-desc">全貸通是台灣專業的民間小額借貸服務平台，旗下擁有急速金、鈔安心、貸好運三大品牌，為全台客戶提供快速、透明、安心的資金解決方案。</p>
+        <p class="footer-desc" style="font-size:13px">營業時間：週一至週日 11:00 - 22:00</p>
+      </div>
+      <div>
+        <h4>服務品牌</h4>
+        <ul class="footer-links" id="footerBrands">
+          <!-- JS will populate -->
+        </ul>
+      </div>
+      <div>
+        <h4>快速導覽</h4>
+        <ul class="footer-links">
+          <li><a href="#about">關於我們</a></li>
+          <li><a href="#brands">服務方案</a></li>
+          <li><a href="#process">申辦流程</a></li>
+          <li><a href="#advantages">服務優勢</a></li>
+          <li><a href="#faq">常見問題</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>服務資訊</h4>
+        <ul class="footer-links">
+          <li><a href="#coverage">服務範圍</a></li>
+          <li><a href="#faq">常見問題</a></li>
+          <li><a>全台含離島服務</a></li>
+          <li><a>線上申辦免出門</a></li>
+          <li><a>週一至週日 11:00-22:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2024 全貸通 All Rights Reserved.</span>
+      <span class="footer-legal">本站為民間借貸服務，非銀行或金融機構。借貸前請審慎評估自身還款能力。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* === BRAND DATA & RANDOM SHUFFLE === */
+const brands = [
+  {
+    name: '急速金',
+    slogan: '极速到位・分秒必爭',
+    desc: '專為急需資金的您設計，主打業界最快的審核速度。簡化申辦流程、減少等待時間，讓您在最短時間內獲得所需資金，解決燃眉之急。',
+    tags: ['快速審核', '當天撥款', '免擔保', '線上辦理'],
+    icon: '⚡',
+    url: 'https://lin.ee/StrjA5H',
+    color: 0
+  },
+  {
+    name: '鈔安心',
+    slogan: '透明費用・安心借貸',
+    desc: '以透明、安心為核心價值，所有費用項目清楚說明，還款規劃穩定可預期。適合注重借貸透明度、希望安心还款的客戶。',
+    tags: ['費用透明', '穩定還款', '彈性方案', '專人服務'],
+    icon: '🛡️',
+    url: 'https://lin.ee/n04xkHB',
+    color: 1
+  },
+  {
+    name: '貸好運',
+    slogan: '靈活額度・好運降臨',
+    desc: '提供多元彈性的借款方案，根據您的個人條件量身規劃額度與還款方式。無論大小資金需求，都能在這裡找到最適合的解決方案。',
+    tags: ['彈性額度', '多元方案', '量身定制', '親切服務'],
+    icon: '🍀',
+    url: 'https://lin.ee/645LTMh',
+    color: 2
+  }
+];
+
+/* Fisher-Yates shuffle */
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+const lineIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.084.923.258 1.058.59.12.301.084.766.048 1.08l-.168 1.02c-.048.301-.24 1.186 1.049.643 1.291-.543 6.916-4.078 9.436-6.975C23.166 14.393 24 12.458 24 10.314"/></svg>';
+
+const accentColors = [
+  'linear-gradient(90deg,#e74c3c,#e67e22)',
+  'linear-gradient(90deg,#2ecc71,#27ae60)',
+  'linear-gradient(90deg,#3498db,#2980b9)'
+];
+const btnColors = [
+  'linear-gradient(135deg,#e74c3c,#c0392b)',
+  'linear-gradient(135deg,#2ecc71,#27ae60)',
+  'linear-gradient(90deg,#3498db,#2980b9)'
+];
+const iconBgs = [
+  'linear-gradient(135deg,#fff5f5,#ffe0d0)',
+  'linear-gradient(135deg,#f0fff4,#d4edda)',
+  'linear-gradient(135deg,#f0f7ff,#d6eaff)'
+];
+
+function renderBrands() {
+  const shuffled = shuffle(brands);
+  const grid = document.getElementById('brandsGrid');
+  const ctaBtns = document.getElementById('ctaBtns');
+  const footerBrands = document.getElementById('footerBrands');
+
+  grid.innerHTML = shuffled.map((b, i) => `
+    <div class="brand-card fade-up visible">
+      <div class="brand-card-top">
+        <div class="brand-card-accent" style="background:${accentColors[b.color]}"></div>
+        <div class="brand-icon" style="background:${iconBgs[b.color]}">${b.icon}</div>
+        <div class="brand-name">${b.name}</div>
+        <div class="brand-slogan">${b.slogan}</div>
+        <div class="brand-desc">${b.desc}</div>
+        <div class="brand-tags">${b.tags.map(t => `<span class="brand-tag">${t}</span>`).join('')}</div>
+      </div>
+      <div class="brand-card-bottom">
+        <a href="${b.url}" target="_blank" rel="noopener" class="brand-btn" style="background:${btnColors[b.color]}">
+          ${lineIcon}
+          透過 ${b.name} 官方 Line 諮詢
+        </a>
+      </div>
+    </div>
+  `).join('');
+
+  ctaBtns.innerHTML = shuffled.map(b => `
+    <a href="${b.url}" target="_blank" rel="noopener" class="btn-primary" style="background:${btnColors[b.color]};color:#fff">
+      ${b.icon} ${b.name} 立即諮詢
+    </a>
+  `).join('');
+
+  footerBrands.innerHTML = shuffled.map(b => `
+    <li><a href="${b.url}" target="_blank" rel="noopener">${b.name} 官方 Line</a></li>
+  `).join('');
+}
+
+renderBrands();
+
+/* === FAQ TOGGLE === */
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const isActive = item.classList.contains('active');
+  document.querySelectorAll('.faq-item').forEach(fi => {
+    fi.classList.remove('active');
+    fi.querySelector('.faq-a').style.maxHeight = '0';
+  });
+  if (!isActive) {
+    item.classList.add('active');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+/* === SCROLL ANIMATIONS === */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+/* === NAV SCROLL === */
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(6,15,31,.98)';
+  } else {
+    nav.style.background = 'rgba(11,29,58,.95)';
+  }
+});
+
+/* === SMOOTH SCROLL === */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById('navLinks').classList.remove('open');
+    }
+  });
+});
+</script>
+</body>
+</html>
