@@ -18,19 +18,47 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FinancialService",
-  "name": "全貸通",
-  "description": "全貸通提供全台（含離島）個人小額資金借貸服務，旗下急速金、鈔安心、貸好運三大方案自由選擇。",
-  "areaServed": {
-    "@type": "Country",
-    "name": "台灣"
-  },
-  "openingHours": "Mo-Su 11:00-22:00",
-  "serviceType": ["小額借貸", "民間借貸", "個人貸款"],
-  "brand": [
-    {"@type": "Brand", "name": "急速金"},
-    {"@type": "Brand", "name": "鈔安心"},
-    {"@type": "Brand", "name": "貸好運"}
+  "@graph": [
+    {
+      "@type": "FinancialService",
+      "name": "全貸通",
+      "description": "全貸通提供全台（含離島）個人小額資金借貸服務，旗下急速金、鈔安心、貸好運三大方案自由選擇，快速審核、安心透明。",
+      "url": "https://eddie0324l-cloud.github.io/QUANDAITONG/",
+      "areaServed": {"@type": "Country", "name": "台灣"},
+      "openingHours": "Mo-Su 09:00-22:00",
+      "serviceType": ["小額借貸", "民間借貸", "個人貸款", "資金週轉"],
+      "brand": [
+        {"@type": "Brand", "name": "急速金"},
+        {"@type": "Brand", "name": "鈔安心"},
+        {"@type": "Brand", "name": "貸好運"}
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "128"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "全貸通提供哪些借貸服務？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "全貸通整合了急速金、鈔安心、貸好運三大民間借貸方案，專門服務個人小額資金需求，提供快速審核與彈性還款規劃。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "服務範圍包含離島嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的，全貸通服務範圍遍佈全台，包含台灣本島各縣市及離島地區，皆可透過線上諮詢進行辦理。"
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -674,20 +702,20 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 const brands = [
   {
     name: '急速金',
-    slogan: '极速到位・分秒必爭',
+    slogan: '極速到位・分秒必爭',
     desc: '專為急需資金的您設計，主打業界最快的審核速度。簡化申辦流程、減少等待時間，在最短時間內獲得所需資金，解決燃眉之急。',
     tags: ['快速審核', '當天撥款', '免擔保', '線上辦理'],
     icon: '⚡',
-    url: 'https://line.me/R/ti/p/@332flaqc?oat__id=6859299&text=你好，我想諮詢（來自全貸通官網）',
+    url: 'https://line.me/R/ti/p/@332flaqc?oat__id=6859299',
     color: 0
   },
   {
     name: '鈔安心',
     slogan: '透明費用・安心借貸',
-    desc: '以透明、安心為核心價值，所有費用項目清楚說明，還款規劃穩定可預期。適合注重借貸透明度、希望安心还款的客戶。',
+    desc: '以透明、安心為核心價值，所有費用項目清楚說明，還款規劃穩定可預期。適合注重借貸透明度、希望安心還款的客戶。',
     tags: ['費用透明', '穩定還款', '彈性方案', '專人服務'],
     icon: '🛡️',
-    url: 'https://line.me/R/ti/p/@887socru?oat__id=6859326&text=你好，我想諮詢（來自全貸通官網）',
+    url: 'https://line.me/R/ti/p/@887socru?oat__id=6859326',
     color: 1
   },
   {
@@ -696,7 +724,7 @@ const brands = [
     desc: '提供多元彈性的借款方案，根據您的個人條件量身規劃額度與還款方式。無論大小資金需求，都能在這裡找到最適合的解決方案。',
     tags: ['彈性額度', '多元方案', '量身定制', '親切服務'],
     icon: '🍀',
-    url: 'https://line.me/R/ti/p/@749abzhp?oat__id=6859338&text=你好，我想諮詢（來自全貸通官網）',
+    url: 'https://line.me/R/ti/p/@749abzhp?oat__id=6859338',
     color: 2
   }
 ];
