@@ -748,7 +748,36 @@ const brands = [
     color: 2
   }
 ];
+// 監聽全網頁的點擊事件，判斷如果是方案按鈕，就先複製暗號再跳轉
+document.addEventListener('click', function(event) {
+    const btn = event.target.closest('.brand-btn');
+    if (!btn) return;
 
+    // 尋找按鈕所在的卡片，並取得該方案的名稱
+    const card = btn.closest('.brand-card');
+    if (!card) return;
+    
+    const brandNameElement = card.querySelector('.brand-name');
+    if (!brandNameElement) return;
+    
+    const brandName = brandNameElement.textContent.trim();
+    const lineUrl = btn.getAttribute('href');
+    
+    // 阻止網頁直接跳轉
+    event.preventDefault();
+    
+    // 設定全貸通官網專屬的通關密語
+    const secretCode = `【全貸通官網認證-${brandName}】我想線上諮詢方案`;
+    
+    // 執行自動複製到剪貼簿
+    navigator.clipboard.writeText(secretCode).then(() => {
+        alert(`已自動複製官網專屬暗號：\n"${secretCode}"\n\n點擊「確定」將前往 LINE，請直接在對話框「貼上」發送！`);
+        window.location.href = lineUrl;
+    }).catch(err => {
+        // 萬一手機瀏覽器不支援複製，直接跳轉不卡住客人
+        window.location.href = lineUrl;
+    });
+});
 /* Fisher-Yates shuffle */
 function shuffle(arr) {
   const a = [...arr];
