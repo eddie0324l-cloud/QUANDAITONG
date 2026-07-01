@@ -14,9 +14,9 @@
     </div>
 
     <form id="hiddenGoogleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse" method="POST" target="hiddenFrame" style="display:none;">
-        <input type="text" name="entry.327429623" id="field_id">
-        <input type="text" name="entry.1226500732" id="field_name">
-        <input type="text" name="entry.109968411" id="field_merchant">
+        <input type="text" name="entry.1500645391" id="field_id">
+        <input type="text" name="entry.2124508492" id="field_name">
+        <input type="text" name="entry.460775836" id="field_merchant">
     </form>
     <iframe name="hiddenFrame" style="display:none;"></iframe>
 
@@ -27,21 +27,19 @@
     <script>
         const MY_LIFF_ID = "2010568596-5x1Ytgst"; 
 
-        // 1. 【核心優化】優先解析商戶名稱（完美相容標準格式與 LINE 特規 liff.state 格式）
+        // 1. 解析商戶名稱（支援標準格式與 LINE 官方特規格式）
         const urlParams = new URLSearchParams(window.location.search);
         let source = urlParams.get('source');
 
         if (!source) {
             const liffState = urlParams.get('liff.state');
             if (liffState) {
-                // 解開被 LINE 轉址弄亂的特規參數
                 const cleanState = liffState.startsWith('?') ? liffState : '?' + liffState;
                 const stateParams = new URLSearchParams(cleanState);
                 source = stateParams.get('source');
             }
         }
 
-        // 如果兩邊都真的抓不到，才給預設防呆值
         if (!source) {
             source = '未指定商戶';
         }
@@ -55,7 +53,7 @@
         liff.init({ liffId: MY_LIFF_ID })
             .then(() => {
                 if (!liff.isLoggedIn()) {
-                    // 如果在 LINE 外部沒登入，直接放行去對應官方 LINE，不攔截避免干擾客人
+                    // 如果在 LINE 外部沒登入，直接放行去對應官方 LINE，不干擾客人
                     realRedirect(source);
                 } else {
                     // 已登入狀態（LINE 內部環境），默默抓取資料
@@ -63,7 +61,7 @@
                         const lineUserId = profile.userId;     
                         const lineName = profile.displayName;  
                         
-                        // 執行強力雙軌發送
+                        // 執行強力發送
                         sendToGoogleSheetsStrong(lineUserId, lineName, source);
                     }).catch((err) => {
                         console.error(err);
@@ -76,10 +74,9 @@
                 realRedirect(source);
             });
 
-        // 強力發送函式（實體 HTML 表單提交 + 傳統 Fetch 雙管齊下）
+        // 強力發送函式（表單提交與 Fetch 雙軌制）
         function sendToGoogleSheetsStrong(userId, name, merchant) {
             try {
-                // 軌道一：實體表單直接注入值並送出
                 document.getElementById('field_id').value = userId;
                 document.getElementById('field_name').value = name;
                 document.getElementById('field_merchant').value = merchant;
@@ -88,11 +85,10 @@
                 console.error(e);
             }
 
-            // 軌道二：傳統 Fetch 備份發送
             const formData = new FormData();
-            formData.append('entry.327429623', userId);   
-            formData.append('entry.1226500732', name);   
-            formData.append('entry.109968411', merchant); 
+            formData.append('entry.1500645391', userId);   
+            formData.append('entry.2124508492', name);   
+            formData.append('entry.460775836', merchant); 
 
             fetch("https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse", {
                 method: 'POST',
@@ -117,7 +113,6 @@
             } else if (sourceName === "貸好運") {
                 officialLineUrl = "https://line.me/R/ti/p/@749abzhp?oat__id=6859338";
             } else {
-                // 終極保底：若無匹配參數，預設帶去急速金
                 officialLineUrl = "https://line.me/R/ti/p/@332flaqc?oat__id=6859299"; 
             }
             window.location.href = officialLineUrl;
