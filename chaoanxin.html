@@ -13,9 +13,9 @@
     </div>
 
     <form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse" method="POST" target="hidden_iframe" style="display:none;">
-        <input type="text" name="entry.1500645391" id="field_id">
-        <input type="text" name="entry.2124508492" id="field_name">
-        <input type="text" name="entry.460775836" value="鈔安心">
+        <input type="text" name="entry.1273118510" id="field_id">
+        <input type="text" name="entry.1354584222" id="field_name">
+        <input type="text" name="entry.2035431856" value="鈔安心">
     </form>
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
@@ -28,6 +28,7 @@
                 liff.getProfile().then(p => {
                     document.getElementById('field_id').value = p.userId;
                     document.getElementById('field_name').value = p.displayName;
+                    
                     document.getElementById('googleForm').submit();
                     setTimeout(() => { clearTimeout(maxWait); go(); }, 400);
                 }).catch(() => { go(); });
