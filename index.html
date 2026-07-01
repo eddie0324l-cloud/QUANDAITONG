@@ -719,14 +719,15 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 
 <script>
 /* === BRAND DATA & RANDOM SHUFFLE === */
+// 💡 請把下方的 url 欄位，全部換成你在 LINE 後台為這三個網頁申請的「LIFF URL」！
 const brands = [
   {
     name: '急速金',
     slogan: '極速到位・分秒必爭',
-    desc: '專為急需資金的您設計，主打業界最快的審核速度。簡化申辦流程、減少等待時間，在最短時間內獲得所需資金，解決燃眉之急。',
+    desc: '專為急需資金的您設計，主打業界最快的審核速度。簡化申辦流程、減少等待時間，在最短時間內獲得所需資金，解決燃秘之急。',
     tags: ['快速審核', '當天撥款', '免擔保', '線上辦理'],
     icon: '⚡',
-    url: 'https://eddie0324l-cloud.github.io/QUANDAITONG/jisujin.html',
+    url: 'https://eddie0324l-cloud.github.io/QUANDAITONG/jisujin.html', // 👈 填入對應 jisujin.html 的 LIFF 網址
     color: 0
   },
   {
@@ -735,7 +736,7 @@ const brands = [
     desc: '以透明、安心為核心價值，所有費用項目清楚說明，還款規劃穩定可預期。適合注重借貸透明度、希望安心還款的客戶。',
     tags: ['費用透明', '穩定還款', '彈性方案', '專人服務'],
     icon: '🛡️',
-    url: 'https://eddie0324l-cloud.github.io/QUANDAITONG/chaoanxin.html',
+    url: 'https://eddie0324l-cloud.github.io/QUANDAITONG/chaoanxin.html', // 👈 填入對應 chaoanxin.html 的 LIFF 網址
     color: 1
   },
   {
@@ -744,16 +745,20 @@ const brands = [
     desc: '提供多元彈性的借款方案，根據您的個人條件量身規劃額度與還款方式。無論大小資金需求，都能在這裡找到最適合的解決方案。',
     tags: ['彈性額度', '多元方案', '量身定制', '親切服務'],
     icon: '🍀',
-    url: 'https://eddie0324l-cloud.github.io/QUANDAITONG/daihaoyun.html',
+    url: 'https://eddie0324l-cloud.github.io/QUANDAITONG/daihaoyun.html', // 👈 填入對應 daihaoyun.html 的 LIFF 網址
     color: 2
   }
 ];
-// 監聽全網頁的點擊事件，判斷如果是方案按鈕，就先複製暗號再跳轉
+
+// 監聽全網頁的點擊事件：取消複製暗號、取消彈窗，點擊後秒速無感跳轉
 document.addEventListener('click', function(event) {
     const btn = event.target.closest('.brand-btn');
     if (!btn) return;
 
-    // 尋找按鈕所在的卡片，並取得該方案的名稱
+    // 阻止原本 HTML 可能造成的混亂跳轉
+    event.preventDefault();
+
+    // 尋找按鈕所在的卡片
     const card = btn.closest('.brand-card');
     if (!card) return;
     
@@ -761,22 +766,18 @@ document.addEventListener('click', function(event) {
     if (!brandNameElement) return;
     
     const brandName = brandNameElement.textContent.trim();
-    const lineUrl = btn.getAttribute('href');
+
+    // 從我們上面的 brands 陣列中，精準配對出對應商戶的全新 LIFF 網址
+    const targetBrand = brands.find(b => b.name === brandName);
     
-    // 阻止網頁直接跳轉
-    event.preventDefault();
-    
-    // 設定全貸通官網專屬的通關密語
-    const secretCode = `【全貸通官網認證-${brandName}】我想線上諮詢方案`;
-    
-    // 執行自動複製到剪貼簿
-    navigator.clipboard.writeText(secretCode).then(() => {
-        alert(`已自動複製官網專屬暗號：\n"${secretCode}"\n\n點擊「確定」將前往 LINE，請直接在對話框「貼上」發送！`);
-        window.location.href = lineUrl;
-    }).catch(err => {
-        // 萬一手機瀏覽器不支援複製，直接跳轉不卡住客人
-        window.location.href = lineUrl;
-    });
+    if (targetBrand && targetBrand.url) {
+        // ⚡ 0秒無感直接出發去 LIFF 追蹤網頁，不彈窗、不複製、不干擾客人
+        window.location.href = targetBrand.url;
+    } else {
+        // 防呆：萬一陣列配對失敗，抓取按鈕原本的 href 跳轉
+        const fallbackUrl = btn.getAttribute('href');
+        if (fallbackUrl) window.location.href = fallbackUrl;
+    }
 });
 /* Fisher-Yates shuffle */
 function shuffle(arr) {
