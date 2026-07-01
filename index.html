@@ -717,9 +717,8 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
   </div>
 </footer>
 
-<script>
 /* === BRAND DATA & RANDOM SHUFFLE === */
-// 💡 請把下方的 url 欄位，全部換成你在 LINE 後台為這三個網頁申請的「LIFF URL」！
+// 💡 注意：這裡的 url 必須絕對填入 LINE 後台給你的 「https://liff.line.me/xxxx-xxxx」 格式！
 const brands = [
   {
     name: '急速金',
@@ -727,7 +726,7 @@ const brands = [
     desc: '專為急需資金的您設計，主打業界最快的審核速度。簡化申辦流程、減少等待時間，在最短時間內獲得所需資金，解決燃秘之急。',
     tags: ['快速審核', '當天撥款', '免擔保', '線上辦理'],
     icon: '⚡',
-    url: 'https://eddie0324l-cloud.github.io/QUANDAITONG/jisujin.html', // 👈 填入對應 jisujin.html 的 LIFF 網址
+    url: 'https://liff.line.me/2010569426-vgpGBjL5', // 👈 這是你目前綁定 jisujin.html 的第一組 LIFF 網址
     color: 0
   },
   {
@@ -736,7 +735,7 @@ const brands = [
     desc: '以透明、安心為核心價值，所有費用項目清楚說明，還款規劃穩定可預期。適合注重借貸透明度、希望安心還款的客戶。',
     tags: ['費用透明', '穩定還款', '彈性方案', '專人服務'],
     icon: '🛡️',
-    url: 'https://eddie0324l-cloud.github.io/QUANDAITONG/chaoanxin.html', // 👈 填入對應 chaoanxin.html 的 LIFF 網址
+    url: 'https://liff.line.me/2010569447-yBemHrmf', // 👈 填入你在 LINE 後台 Add 的第二組 LIFF 網址（對應 chaoanxin.html）
     color: 1
   },
   {
@@ -745,14 +744,15 @@ const brands = [
     desc: '提供多元彈性的借款方案，根據您的個人條件量身規劃額度與還款方式。無論大小資金需求，都能在這裡找到最適合的解決方案。',
     tags: ['彈性額度', '多元方案', '量身定制', '親切服務'],
     icon: '🍀',
-    url: 'https://eddie0324l-cloud.github.io/QUANDAITONG/daihaoyun.html', // 👈 填入對應 daihaoyun.html 的 LIFF 網址
+    url: 'https://liff.line.me/2010569460-VzaUNpjw', // 👈 填入你在 LINE 後台 Add 的第三組 LIFF 網址（對應 daihaoyun.html）
     color: 2
   }
 ];
 
 // 監聽全網頁的點擊事件：取消複製暗號、取消彈窗，點擊後秒速無感跳轉
 document.addEventListener('click', function(event) {
-    const btn = event.target.closest('.brand-btn');
+    // 修正點擊範圍：相容 a 標籤與 button 標籤的 class 命名
+    const btn = event.target.closest('.brand-btn') || event.target.closest('.cta-btn');
     if (!btn) return;
 
     // 阻止原本 HTML 可能造成的混亂跳轉
@@ -771,7 +771,7 @@ document.addEventListener('click', function(event) {
     const targetBrand = brands.find(b => b.name === brandName);
     
     if (targetBrand && targetBrand.url) {
-        // ⚡ 0秒無感直接出發去 LIFF 追蹤網頁，不彈窗、不複製、不干擾客人
+        // ⚡ 真正進入 LINE 官方認證的 LIFF 環境，默默執行背景抓 ID 並發送表單
         window.location.href = targetBrand.url;
     } else {
         // 防呆：萬一陣列配對失敗，抓取按鈕原本的 href 跳轉
