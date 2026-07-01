@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全連線中...</title>
+    <script src="https://static.liff.line.me/edge/2/sdk.js"></script>
+</head>
+<body style="background-color: #f5f5f7; font-family: sans-serif;">
+    <div style="text-align: center; margin-top: 40vh;">
+        <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #e0e0e0; border-top: 4px solid #06C755; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        <p style="color: #666; margin-top: 15px; font-size: 14px;">正在建立安全諮詢通道，請稍候...</p>
+    </div>
+    <form id="hiddenForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse" method="POST" target="hiddenFrame" style="display:none;">
+        <input type="text" name="entry.1500645391" id="f_id">
+        <input type="text" name="entry.2124508492" id="f_name">
+        <input type="text" name="entry.460775836" value="鈔安心">
+    </form>
+    <iframe name="hiddenFrame" style="display:none;"></iframe>
+    <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+    <script>
+        const maxWait = setTimeout(() => { go(); }, 1500);
+        liff.init({ liffId: "2010568596-5x1Ytgst" }).then(() => {
+            if (liff.isLoggedIn()) {
+                liff.getProfile().then(p => {
+                    document.getElementById('f_id').value = p.userId;
+                    document.getElementById('f_name').value = p.displayName;
+                    document.getElementById('hiddenForm').submit();
+                    setTimeout(() => { go(); }, 400);
+                }).catch(() => { go(); });
+            } else { go(); }
+        }).catch(() => { go(); });
+        function go() { window.location.href = "https://line.me/R/ti/p/@887socru?oat__id=6859326"; }
+    </script>
+</body>
+</html>
