@@ -13,63 +13,78 @@
         <p style="color: #666; margin-top: 15px; font-size: 14px;">正在建立安全諮詢通道，請稍候...</p>
     </div>
 
+    <form id="hiddenGoogleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse" method="POST" target="hiddenFrame" style="display:none;">
+        <input type="text" name="entry.327429623" id="field_id">
+        <input type="text" name="entry.1226500732" id="field_name">
+        <input type="text" name="entry.109968411" id="field_merchant">
+    </form>
+    <iframe name="hiddenFrame" style="display:none;"></iframe>
+
     <style>
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 
     <script>
         const MY_LIFF_ID = "2010568596-5x1Ytgst"; 
-        const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse";
 
         // 1. 優先解析商戶名稱
         const urlParams = new URLSearchParams(window.location.search);
         let source = urlParams.get('source') || '未指定商戶';
 
-        // 2. 終局保險安全鎖：3秒內無論網頁發生什麼事，一定強制跳轉去 LINE，絕對不讓客人卡在死畫面
+        // 2. 終局保險安全鎖：1.5 秒內無論如何，一定強制跳轉去 LINE
         const maxWaitTimeout = setTimeout(() => {
             realRedirect(source);
-        }, 3000);
+        }, 1500);
 
         // 3. 初始化 LIFF
         liff.init({ liffId: MY_LIFF_ID })
             .then(() => {
                 if (!liff.isLoggedIn()) {
-                    // 如果沒登入（例如一般瀏覽器），引導登入，並把目前的網址(含source參數)傳過去，登入後才會認得是哪個商戶
-                    liff.login({ redirectUri: window.location.href });
+                    // 如果沒登入（例如一般瀏覽器），直接跳轉不攔截名字，避免彈窗干擾客人
+                    realRedirect(source);
                 } else {
-                    // 已登入狀態，開始抓取資料
+                    // 已登入狀態，默默抓取資料
                     liff.getProfile().then(profile => {
-                        const lineUserId = profile.userId;     // 這就是你要的 LINE_ID
-                        const lineName = profile.displayName;  // LINE 名字
+                        const lineUserId = profile.userId;     
+                        const lineName = profile.displayName;  
                         
-                        // 成功抓到資料，傳送給 Google 表單
-                        sendToGoogleSheets(lineUserId, lineName, source);
+                        // 執行強力發送
+                        sendToGoogleSheetsStrong(lineUserId, lineName, source);
                     }).catch((err) => {
-                        console.error('抓取 Profile 失敗', err);
-                        // 抓取失敗也要放行
-                        sendToGoogleSheets("抓取失敗", "抓取失敗", source);
+                        console.error(err);
+                        realRedirect(source); 
                     });
                 }
             })
             .catch((err) => {
-                console.error('LIFF 初始化失敗', err);
-                // 初始化失敗（通常在一般瀏覽器可能發生）直接放行跳轉
+                console.error(err);
                 realRedirect(source);
             });
 
-        // 傳送給 Google 試算表
-        function sendToGoogleSheets(userId, name, merchant) {
-            const formData = new FormData();
-            formData.append('entry.327429623', userId);   // LINE_ID 欄位
-            formData.append('entry.1226500732', name);   // LINE_Name 欄位
-            formData.append('entry.109968411', merchant); // 進入商戶欄位
+        // 強力發送函式（實體 HTML 表單提交 + 傳統 Fetch 雙管齊下）
+        function sendToGoogleSheetsStrong(userId, name, merchant) {
+            try {
+                // 實體表單塞值並提交
+                document.getElementById('field_id').value = userId;
+                document.getElementById('field_name').value = name;
+                document.getElementById('field_merchant').value = merchant;
+                document.getElementById('hiddenGoogleForm').submit();
+            } catch(e) {
+                console.error(e);
+            }
 
-            fetch(googleFormUrl, {
+            // 傳統 Fetch 當作第二重備份
+            const formData = new FormData();
+            formData.append('entry.327429623', userId);   
+            formData.append('entry.1226500732', name);   
+            formData.append('entry.109968411', merchant); 
+
+            fetch("https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse", {
                 method: 'POST',
                 mode: 'no-cors',
                 body: formData
             }).then(() => {
-                clearTimeout(maxWaitTimeout); // 傳送完成，取消安全鎖，立即跳轉
+                clearTimeout(maxWaitTimeout); 
                 realRedirect(merchant);
             }).catch(() => {
                 clearTimeout(maxWaitTimeout);
