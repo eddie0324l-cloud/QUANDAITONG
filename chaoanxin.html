@@ -23,7 +23,7 @@
     <script>
         const maxWait = setTimeout(() => { go(); }, 1500);
 
-        liff.init({ liffId: "https://liff.line.me/2010569447-yBemHrmf" }).then(() => {
+        liff.init({ liffId: "2010569447-yBemHrmf" }).then(() => {
             if (liff.isLoggedIn()) {
                 liff.getProfile().then(p => {
                     document.getElementById('field_id').value = p.userId;
