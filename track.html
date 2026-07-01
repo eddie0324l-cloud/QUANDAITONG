@@ -21,62 +21,70 @@
         const MY_LIFF_ID = "2010568596-5x1Ytgst"; 
         const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse";
 
-        // 一進網頁立刻解析參數
+        // 1. 優先解析商戶名稱
         const urlParams = new URLSearchParams(window.location.search);
-        const source = urlParams.get('source') || '未指定商戶';
+        let source = urlParams.get('source') || '未指定商戶';
 
-        // 【核心修改】：不論如何，先向 Google 表單報到，記下一筆「點擊紀錄」
-        sendToGoogleSheets("出錯未抓到ID", "出錯未抓到名字", source);
+        // 2. 終局保險安全鎖：3秒內無論網頁發生什麼事，一定強制跳轉去 LINE，絕對不讓客人卡在死畫面
+        const maxWaitTimeout = setTimeout(() => {
+            realRedirect(source);
+        }, 3000);
 
+        // 3. 初始化 LIFF
         liff.init({ liffId: MY_LIFF_ID })
             .then(() => {
                 if (!liff.isLoggedIn()) {
-                    liff.login(); 
+                    // 如果沒登入（例如一般瀏覽器），引導登入，並把目前的網址(含source參數)傳過去，登入後才會認得是哪個商戶
+                    liff.login({ redirectUri: window.location.href });
                 } else {
+                    // 已登入狀態，開始抓取資料
                     liff.getProfile().then(profile => {
-                        const lineUserId = profile.userId;     
-                        const lineName = profile.displayName;  
+                        const lineUserId = profile.userId;     // 這就是你要的 LINE_ID
+                        const lineName = profile.displayName;  // LINE 名字
                         
-                        // LINE 運作正常，送出完整的正確資料（這筆資料會蓋過或緊鄰上一筆）
-                        sendToGoogleSheets(lineUserId, lineName, source, true);
+                        // 成功抓到資料，傳送給 Google 表單
+                        sendToGoogleSheets(lineUserId, lineName, source);
                     }).catch((err) => {
-                        console.error(err);
-                        realRedirect(source); 
+                        console.error('抓取 Profile 失敗', err);
+                        // 抓取失敗也要放行
+                        sendToGoogleSheets("抓取失敗", "抓取失敗", source);
                     });
                 }
             })
             .catch((err) => {
-                console.error(err);
-                realRedirect(source); 
+                console.error('LIFF 初始化失敗', err);
+                // 初始化失敗（通常在一般瀏覽器可能發生）直接放行跳轉
+                realRedirect(source);
             });
 
-        // 統一送出資料的函式
-        function sendToGoogleSheets(userId, name, merchant, isSuccess = false) {
+        // 傳送給 Google 試算表
+        function sendToGoogleSheets(userId, name, merchant) {
             const formData = new FormData();
-            formData.append('entry.327429623', userId);   
-            formData.append('entry.1226500732', name);   
-            formData.append('entry.109968411', merchant); 
+            formData.append('entry.327429623', userId);   // LINE_ID 欄位
+            formData.append('entry.1226500732', name);   // LINE_Name 欄位
+            formData.append('entry.109968411', merchant); // 進入商戶欄位
 
             fetch(googleFormUrl, {
                 method: 'POST',
                 mode: 'no-cors',
                 body: formData
             }).then(() => {
-                // 如果是第二步（成功抓到ID後）才執行跳轉
-                if (isSuccess) realRedirect(merchant);
+                clearTimeout(maxWaitTimeout); // 傳送完成，取消安全鎖，立即跳轉
+                realRedirect(merchant);
             }).catch(() => {
-                if (isSuccess) realRedirect(merchant);
+                clearTimeout(maxWaitTimeout);
+                realRedirect(merchant); 
             });
         }
 
-        // 根據不同的 source 參數，跳轉到對應的官方 LINE
-        function realRedirect(source) {
+        // 官方 LINE 路由清單
+        function realRedirect(sourceName) {
             let officialLineUrl = "";
-            if (source === "急速金") {
+            if (sourceName === "急速金") {
                 officialLineUrl = "https://line.me/R/ti/p/@332flaqc?oat__id=6859299"; 
-            } else if (source === "鈔安心") {
+            } else if (sourceName === "鈔安心") {
                 officialLineUrl = "https://line.me/R/ti/p/@887socru?oat__id=6859326";
-            } else if (source === "貸好運") {
+            } else if (sourceName === "貸好運") {
                 officialLineUrl = "https://line.me/R/ti/p/@749abzhp?oat__id=6859338";
             } else {
                 officialLineUrl = "https://line.me/R/ti/p/@332flaqc?oat__id=6859299"; 
