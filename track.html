@@ -27,11 +27,26 @@
     <script>
         const MY_LIFF_ID = "2010568596-5x1Ytgst"; 
 
-        // 1. 優先解析商戶名稱
+        // 1. 【核心優化】優先解析商戶名稱（完美相容標準格式與 LINE 特規 liff.state 格式）
         const urlParams = new URLSearchParams(window.location.search);
-        let source = urlParams.get('source') || '未指定商戶';
+        let source = urlParams.get('source');
 
-        // 2. 終局保險安全鎖：1.5 秒內無論如何，一定強制跳轉去 LINE
+        if (!source) {
+            const liffState = urlParams.get('liff.state');
+            if (liffState) {
+                // 解開被 LINE 轉址弄亂的特規參數
+                const cleanState = liffState.startsWith('?') ? liffState : '?' + liffState;
+                const stateParams = new URLSearchParams(cleanState);
+                source = stateParams.get('source');
+            }
+        }
+
+        // 如果兩邊都真的抓不到，才給預設防呆值
+        if (!source) {
+            source = '未指定商戶';
+        }
+
+        // 2. 終局保險安全鎖：1.5 秒內無論如何，一定強制跳轉去 LINE，絕不卡死
         const maxWaitTimeout = setTimeout(() => {
             realRedirect(source);
         }, 1500);
@@ -40,15 +55,15 @@
         liff.init({ liffId: MY_LIFF_ID })
             .then(() => {
                 if (!liff.isLoggedIn()) {
-                    // 如果沒登入（例如一般瀏覽器），直接跳轉不攔截名字，避免彈窗干擾客人
+                    // 如果在 LINE 外部沒登入，直接放行去對應官方 LINE，不攔截避免干擾客人
                     realRedirect(source);
                 } else {
-                    // 已登入狀態，默默抓取資料
+                    // 已登入狀態（LINE 內部環境），默默抓取資料
                     liff.getProfile().then(profile => {
                         const lineUserId = profile.userId;     
                         const lineName = profile.displayName;  
                         
-                        // 執行強力發送
+                        // 執行強力雙軌發送
                         sendToGoogleSheetsStrong(lineUserId, lineName, source);
                     }).catch((err) => {
                         console.error(err);
@@ -64,7 +79,7 @@
         // 強力發送函式（實體 HTML 表單提交 + 傳統 Fetch 雙管齊下）
         function sendToGoogleSheetsStrong(userId, name, merchant) {
             try {
-                // 實體表單塞值並提交
+                // 軌道一：實體表單直接注入值並送出
                 document.getElementById('field_id').value = userId;
                 document.getElementById('field_name').value = name;
                 document.getElementById('field_merchant').value = merchant;
@@ -73,7 +88,7 @@
                 console.error(e);
             }
 
-            // 傳統 Fetch 當作第二重備份
+            // 軌道二：傳統 Fetch 備份發送
             const formData = new FormData();
             formData.append('entry.327429623', userId);   
             formData.append('entry.1226500732', name);   
@@ -92,7 +107,7 @@
             });
         }
 
-        // 官方 LINE 路由清單
+        // 4. 正確官方 LINE 跳轉路由清單
         function realRedirect(sourceName) {
             let officialLineUrl = "";
             if (sourceName === "急速金") {
@@ -102,6 +117,7 @@
             } else if (sourceName === "貸好運") {
                 officialLineUrl = "https://line.me/R/ti/p/@749abzhp?oat__id=6859338";
             } else {
+                // 終極保底：若無匹配參數，預設帶去急速金
                 officialLineUrl = "https://line.me/R/ti/p/@332flaqc?oat__id=6859299"; 
             }
             window.location.href = officialLineUrl;
