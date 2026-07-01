@@ -1,37 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
+    <meta charset="UTF-8">
+    <title>急速金連線中...</title>
     <script src="https://static.liff.line.me/edge/2/sdk.js"></script>
 </head>
-<body>
+<body style="background-color: #f5f5f7; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif;">
+    
+    <h2 id="msg">正在確認身份，請稍候...</h2>
+
+    <form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse" method="POST" target="hidden_iframe" style="display:none;">
+        <input type="text" name="entry.1273118510" id="field_id" value="未取得ID">
+        <input type="text" name="entry.1354584222" id="field_name" value="未取得名稱">
+        <input type="text" name="entry.2035431856" value="急速金">
+    </form>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
     <script>
+        // 設定轉跳目標
+        const targetUrl = "https://line.me/R/ti/p/@332flaqc?oat__id=6859299";
+
+        // 初始化 LIFF
         liff.init({ liffId: "2010569426-vgpGBjL5" }).then(() => {
-            if (!liff.isLoggedIn()) {
-                // 如果沒登入，強迫轉跳 LINE 登入頁，這是唯一能抓到資料的方法
-                liff.login();
-            } else {
+            if (liff.isLoggedIn()) {
                 liff.getProfile().then(p => {
-                    // 成功抓到資料，送出表單
-                    sendToGoogle(p.userId, p.displayName);
+                    // 成功抓取！填入真實資料
+                    document.getElementById('field_id').value = p.userId;
+                    document.getElementById('field_name').value = p.displayName;
+                    document.getElementById('googleForm').submit();
+                    document.getElementById('msg').innerText = "連線成功，正在跳轉...";
+                    setTimeout(() => { window.location.href = targetUrl; }, 800);
+                }).catch(() => {
+                    // 抓取失敗，只送出預設值並跳轉
+                    document.getElementById('googleForm').submit();
+                    window.location.href = targetUrl;
                 });
+            } else {
+                // 未登入，直接導向登入，登入後會自動回來此頁
+                liff.login();
             }
         }).catch(() => {
-            // 如果初始化真的失敗，直接跳轉客服，不浪費客人時間
-            window.location.href = "https://line.me/R/ti/p/@332flaqc";
+            // 初始化失敗，直接放棄送表單跳轉
+            window.location.href = targetUrl;
         });
-
-        function sendToGoogle(id, name) {
-            const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse";
-            const data = new FormData();
-            data.append("entry.1273118510", id);
-            data.append("entry.1354584222", name);
-            data.append("entry.2035431856", "急速金");
-
-            fetch(formUrl, { method: "POST", body: data, mode: "no-cors" })
-            .finally(() => {
-                window.location.href = "https://line.me/R/ti/p/@332flaqc";
-            });
-        }
     </script>
 </body>
 </html>
