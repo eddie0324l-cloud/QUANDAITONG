@@ -1,42 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/</loc>
-    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://eddie0324l-cloud.github.io/QUANDAITONG/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eddie0324l-cloud.github.io/QUANDAITONG/"/>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/privacy.html</loc>
-    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/terms.html</loc>
-    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/jisujin.html</loc>
-    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/chaoanxin.html</loc>
-    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/daihaoyun.html</loc>
-    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-</urlset>
+# robots.txt for 全貸通
+# https://eddie0324l-cloud.github.io/QUANDAITONG/
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /*?ref=*
+
+# Allow important resources
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Sitemap
+Sitemap: https://eddie0324l-cloud.github.io/QUANDAITONG/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
