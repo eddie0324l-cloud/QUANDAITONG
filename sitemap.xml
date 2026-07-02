@@ -3,64 +3,40 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
+    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="zh-TW" href="https://eddie0324l-cloud.github.io/QUANDAITONG/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eddie0324l-cloud.github.io/QUANDAITONG/"/>
   </url>
   <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/#about</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/#brands</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/#process</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/#advantages</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/#coverage</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/#faq</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/#referral</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/privacy.html</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
+    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/terms.html</loc>
-    <lastmod>2024-01-01T00:00:00+08:00</lastmod>
+    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/jisujin.html</loc>
+    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/chaoanxin.html</loc>
+    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eddie0324l-cloud.github.io/QUANDAITONG/daihaoyun.html</loc>
+    <lastmod>2025-07-02T00:00:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
