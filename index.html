@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://eddie0324l-cloud.github.io; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://static.liff.line.me; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.clarity.ms; connect-src 'self' https://www.clarity.ms https://*.clarity.ms https://docs.google.com; frame-src https://line.me https://liff.line;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://eddie0324l-cloud.github.io; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://static.liff.line.me; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.clarity.ms; connect-src 'self' https://www.clarity.ms https://*.clarity.ms https://docs.google.com; frame-src https://line.me https://liff.line;">
+<link rel="manifest" href="manifest.json">
 
 <!-- Primary Meta Tags -->
 <title>全貸通｜全台民間小額借貸服務 — 急速金・鈔安心・貸好運｜快速審核・當天撥款</title>
@@ -33,9 +34,9 @@
 <meta property="og:url" content="https://eddie0324l-cloud.github.io/QUANDAITONG/">
 <meta property="og:title" content="全貸通｜全台民間小額借貸服務 — 急速金・鈔安心・貸好運">
 <meta property="og:description" content="全貸通提供全台（含離島）個人小額資金借貸服務，旗下急速金、鈔安心、貸好運三大方案自由選擇。快速審核最快30分鐘，當天撥款，免擔保品，線上諮詢立即辦理。">
-<meta property="og:image" content="https://eddie0324l-cloud.github.io/QUANDAITONG/og-image.svg">
-<meta property="og:image:secure_url" content="https://eddie0324l-cloud.github.io/QUANDAITONG/og-image.svg">
-<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image" content="https://eddie0324l-cloud.github.io/QUANDAITONG/og-image.png">
+<meta property="og:image:secure_url" content="https://eddie0324l-cloud.github.io/QUANDAITONG/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="全貸通 - 全台民間小額借貸服務，快速審核最快30分鐘，當天撥款">
@@ -49,7 +50,7 @@
 <meta name="twitter:url" content="https://eddie0324l-cloud.github.io/QUANDAITONG/">
 <meta name="twitter:title" content="全貸通｜全台民間小額借貸服務 — 急速金・鈔安心・貸好運">
 <meta name="twitter:description" content="全貸通提供全台（含離島）個人小額資金借貸服務，旗下急速金、鈔安心、貸好運三大方案自由選擇。快速審核最快30分鐘，當天撥款，免擔保品。">
-<meta name="twitter:image" content="https://eddie0324l-cloud.github.io/QUANDAITONG/og-image.svg">
+<meta name="twitter:image" content="https://eddie0324l-cloud.github.io/QUANDAITONG/og-image.png">
 <meta name="twitter:image:alt" content="全貸通 - 全台民間小額借貸服務">
 <meta name="twitter:site" content="@quandai">
 <meta name="twitter:creator" content="@quandai">
@@ -428,8 +429,6 @@
 <!-- Performance & Resource Hints -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://images.unsplash.com">
-<link rel="dns-prefetch" href="https://images.unsplash.com">
 <link rel="dns-prefetch" href="https://www.clarity.ms">
 <link rel="dns-prefetch" href="https://social-plugins.line.me">
 <link rel="dns-prefetch" href="https://www.facebook.com">
@@ -439,7 +438,8 @@
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="logo.svg">
-<link rel="apple-touch-icon" href="logo.svg">
+<link rel="icon" type="image/png" href="logo-192.png">
+<link rel="apple-touch-icon" href="logo-512.png">
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet">
@@ -461,6 +461,15 @@ img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* TOUCH OPTIMIZATIONS */
+@media (hover: none) and (pointer: coarse) {
+  * {-webkit-tap-highlight-color: transparent;}
+  a, button, [role="button"] {touch-action: manipulation; min-height: 44px; min-width: 44px;}
+  .brand-btn, .brand-btn-about, .btn-primary, .btn-outline, .nav-cta {min-height: 48px;}
+  .brand-desc, .section-desc, p {font-size: 15px; line-height: 1.9;}
+  .brand-tag {font-size: 13px; padding: 8px 16px;}
+}
 
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,29,58,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(200,163,78,.15);transition:var(--transition)}
@@ -578,6 +587,8 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 .brand-btn svg{width:22px;height:22px;fill:currentColor}
 .brand-btn-arrow{margin-left:auto;opacity:.7;transition:var(--transition)}
 .brand-btn:hover .brand-btn-arrow{opacity:1;transform:translateX(4px)}
+.brand-btn-about{display:inline-flex;align-items:center;justify-content:center;width:100%;padding:12px;border-radius:10px;font-weight:600;font-size:14px;transition:var(--transition);border:2px solid;background:transparent;cursor:pointer;margin-bottom:12px;text-decoration:none}
+.brand-btn-about:hover{background:rgba(0,0,0,.03);transform:translateY(-1px)}
 
 /* PROCESS */
 .process{position:relative;overflow:hidden}
@@ -848,7 +859,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 <!-- HERO -->
 <section class="hero" id="hero" aria-labelledby="hero-title">
   <div class="hero-bg">
-    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1920&q=80" 
+    <img src="images/hero-bg.webp" 
          alt="全貸通專業資金借貸服務 - 商業辦公環境" 
          width="1920" height="1080"
          loading="eager" 
@@ -916,7 +927,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
   <div class="container">
     <div class="about-grid">
       <div class="about-image fade-up">
-        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80" 
+        <img src="images/about-bg.webp" 
              alt="全貸通專業團隊提供優質借貸服務" 
              width="800" height="600"
              loading="lazy" 
@@ -966,6 +977,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
             <div class="brand-tags"><span class="brand-tag">快速審核</span><span class="brand-tag">當天撥款</span><span class="brand-tag">免擔保</span><span class="brand-tag">線上辦理</span></div>
           </div>
           <div class="brand-card-bottom">
+            <a href="jisujin-about.html" class="brand-btn-about" style="border-color:#e74c3c;color:#e74c3c">了解更多</a>
             <a href="https://liff.line.me/2010569426-vgpGBjL5" target="_blank" rel="noopener" class="brand-btn" style="background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff">透過急速金官方 Line 諮詢</a>
           </div>
         </div>
@@ -983,6 +995,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
             <div class="brand-tags"><span class="brand-tag">費用透明</span><span class="brand-tag">穩定還款</span><span class="brand-tag">彈性方案</span><span class="brand-tag">專人服務</span></div>
           </div>
           <div class="brand-card-bottom">
+            <a href="chaoanxin-about.html" class="brand-btn-about" style="border-color:#2ecc71;color:#2ecc71">了解更多</a>
             <a href="https://liff.line.me/2010569447-yBemHrmf" target="_blank" rel="noopener" class="brand-btn" style="background:linear-gradient(135deg,#2ecc71,#27ae60);color:#fff">透過鈔安心官方 Line 諮詢</a>
           </div>
         </div>
@@ -1000,6 +1013,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
             <div class="brand-tags"><span class="brand-tag">彈性額度</span><span class="brand-tag">多元方案</span><span class="brand-tag">量身定制</span><span class="brand-tag">親切服務</span></div>
           </div>
           <div class="brand-card-bottom">
+            <a href="daihaoyun-about.html" class="brand-btn-about" style="border-color:#3498db;color:#3498db">了解更多</a>
             <a href="https://liff.line.me/2010569460-VzaUNpjw" target="_blank" rel="noopener" class="brand-btn" style="background:linear-gradient(135deg,#3498db,#2980b9);color:#fff">透過貸好運官方 Line 諮詢</a>
           </div>
         </div>
@@ -1011,7 +1025,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 <!-- PROCESS -->
 <section class="section process" id="process" aria-labelledby="process-title">
   <div class="process-bg">
-    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920&q=80" 
+    <img src="images/process-bg.webp" 
          alt="全貸通簡易申辦流程 - 文件簽署" 
          width="1920" height="1080"
          loading="lazy" 
@@ -1054,7 +1068,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 <!-- COVERAGE -->
 <section class="section coverage" id="coverage" aria-labelledby="coverage-title">
   <div class="coverage-bg">
-    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80" 
+    <img src="images/coverage-bg.webp" 
          alt="全貸通服務範圍涵蓋全台各縣市 - 台灣風景" 
          width="1920" height="1080"
          loading="lazy" 
@@ -1155,7 +1169,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 <!-- CTA -->
 <section class="cta" aria-labelledby="cta-title">
   <div class="cta-bg">
-    <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=1920&q=80" 
+    <img src="images/cta-bg.webp" 
          alt="全貸通立即諮詢服務 - 城市夜景" 
          width="1920" height="1080"
          loading="lazy" 
@@ -1270,9 +1284,9 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
           <li><a href="#process">申辦流程</a></li>
           <li><a href="#faq">常見問題</a></li>
           <li><a href="#coverage">服務範圍</a></li>
-          <li><a href="jisujin.html">急速金</a></li>
-          <li><a href="chaoanxin.html">鈔安心</a></li>
-          <li><a href="daihaoyun.html">貸好運</a></li>
+          <li><a href="jisujin-about.html">急速金</a></li>
+          <li><a href="chaoanxin-about.html">鈔安心</a></li>
+          <li><a href="daihaoyun-about.html">貸好運</a></li>
         </ul>
       </div>
       <div>
@@ -1338,6 +1352,7 @@ const brands = [
     tags: ['快速審核', '當天撥款', '免擔保', '線上辦理'],
     icon: '⚡',
     url: 'https://liff.line.me/2010569426-vgpGBjL5',
+    aboutUrl: 'jisujin-about.html',
     color: 0
   },
   {
@@ -1347,6 +1362,7 @@ const brands = [
     tags: ['費用透明', '穩定還款', '彈性方案', '專人服務'],
     icon: '🛡️',
     url: 'https://liff.line.me/2010569447-yBemHrmf',
+    aboutUrl: 'chaoanxin-about.html',
     color: 1
   },
   {
@@ -1356,6 +1372,7 @@ const brands = [
     tags: ['彈性額度', '多元方案', '量身定制', '親切服務'],
     icon: '🍀',
     url: 'https://liff.line.me/2010569460-VzaUNpjw',
+    aboutUrl: 'daihaoyun-about.html',
     color: 2
   }
 ];
@@ -1419,6 +1436,7 @@ const lineIcon = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 
 const accentColors = ['linear-gradient(90deg,#e74c3c,#e67e22)','linear-gradient(90deg,#2ecc71,#27ae60)','linear-gradient(90deg,#3498db,#2980b9)'];
 const btnColors = ['linear-gradient(135deg,#e74c3c,#c0392b)','linear-gradient(135deg,#2ecc71,#27ae60)','linear-gradient(90deg,#3498db,#2980b9)'];
 const iconBgs = ['linear-gradient(135deg,#fff5f5,#ffe0d0)','linear-gradient(135deg,#f0fff4,#d4edda)','linear-gradient(135deg,#f0f7ff,#d6eaff)'];
+const aboutColors = ['#e74c3c','#2ecc71','#3498db'];
 
 function renderBrands() {
   const shuffled = shuffle(brands);
@@ -1444,6 +1462,7 @@ function renderBrands() {
         <div class="brand-tags">${b.tags.map(t => `<span class="brand-tag">${t}</span>`).join('')}</div>
       </div>
       <div class="brand-card-bottom">
+        <a href="${b.aboutUrl}" class="brand-btn-about" style="border-color:${aboutColors[b.color]};color:${aboutColors[b.color]}">了解更多</a>
         <a href="${b.url}" target="_blank" rel="noopener" class="brand-btn" style="background:${btnColors[b.color]}" data-brand="${b.name}" data-url="${b.url}">
           ${lineIcon}
           <span>透過 ${b.name} 官方 Line 諮詢</span>
