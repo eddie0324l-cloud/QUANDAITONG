@@ -1,45 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0b1d3a"/>
-      <stop offset="100%" style="stop-color:#132d54"/>
+      <stop offset="50%" style="stop-color:#132d54"/>
+      <stop offset="100%" style="stop-color:#0b1d3a"/>
     </linearGradient>
     <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#e0c675"/>
-      <stop offset="100%" style="stop-color:#a07c2a"/>
+      <stop offset="100%" style="stop-color:#c8a34e"/>
     </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#c8a34e;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#c8a34e;stop-opacity:0"/>
+    </radialGradient>
   </defs>
   
   <!-- Background -->
-  <rect width="512" height="512" rx="80" fill="url(#bgGrad)"/>
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
   
-  <!-- Decorative circle -->
-  <circle cx="256" cy="256" r="180" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.3"/>
+  <!-- Decorative glow -->
+  <circle cx="200" cy="315" r="400" fill="url(#glow)"/>
+  <circle cx="1000" cy="315" r="300" fill="url(#glow)"/>
   
-  <!-- Main character -->
-  <text x="256" y="300" 
+  <!-- Decorative lines -->
+  <line x1="0" y1="100" x2="1200" y2="100" stroke="#c8a34e" stroke-width="1" opacity="0.2"/>
+  <line x1="0" y1="530" x2="1200" y2="530" stroke="#c8a34e" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Left decorative element -->
+  <rect x="60" y="150" width="4" height="330" fill="url(#goldGrad)" opacity="0.6"/>
+  
+  <!-- Main title -->
+  <text x="120" y="240" 
         font-family="'Noto Serif TC', 'PMingLiU', serif" 
-        font-size="220" 
+        font-size="72" 
         font-weight="900" 
-        text-anchor="middle" 
-        fill="url(#goldGrad)">貸</text>
-  
-  <!-- Brand name -->
-  <text x="256" y="420" 
-        font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" 
-        font-size="48" 
-        font-weight="700" 
-        text-anchor="middle" 
-        fill="#ffffff" 
-        letter-spacing="12">全貸通</text>
+        fill="#ffffff">全貸通</text>
   
   <!-- Subtitle -->
-  <text x="256" y="460" 
+  <text x="120" y="310" 
         font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" 
+        font-size="36" 
+        font-weight="700" 
+        fill="url(#goldGrad)">全台民間小額借貸服務</text>
+  
+  <!-- Features -->
+  <g transform="translate(120, 370)">
+    <circle cx="12" cy="-8" r="8" fill="#c8a34e"/>
+    <text x="32" y="0" font-family="'Noto Sans TC', sans-serif" font-size="24" fill="#ffffff">快速審核最快30分鐘</text>
+  </g>
+  <g transform="translate(120, 420)">
+    <circle cx="12" cy="-8" r="8" fill="#c8a34e"/>
+    <text x="32" y="0" font-family="'Noto Sans TC', sans-serif" font-size="24" fill="#ffffff">當天撥款・免擔保品</text>
+  </g>
+  <g transform="translate(120, 470)">
+    <circle cx="12" cy="-8" r="8" fill="#c8a34e"/>
+    <text x="32" y="0" font-family="'Noto Sans TC', sans-serif" font-size="24" fill="#ffffff">全台服務・含離島</text>
+  </g>
+  
+  <!-- Right side - Three brands -->
+  <g transform="translate(750, 180)">
+    <!-- Brand 1 -->
+    <rect x="0" y="0" width="380" height="80" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <circle cx="40" cy="40" r="24" fill="rgba(231,76,60,0.2)"/>
+    <text x="40" y="48" font-size="24" text-anchor="middle">⚡</text>
+    <text x="80" y="35" font-family="'Noto Serif TC', serif" font-size="24" font-weight="700" fill="#ffffff">急速金</text>
+    <text x="80" y="60" font-family="'Noto Sans TC', sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">極速到位・分秒必爭</text>
+    
+    <!-- Brand 2 -->
+    <rect x="0" y="100" width="380" height="80" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <circle cx="40" cy="140" r="24" fill="rgba(46,204,113,0.2)"/>
+    <text x="40" y="148" font-size="24" text-anchor="middle">🛡️</text>
+    <text x="80" y="135" font-family="'Noto Serif TC', serif" font-size="24" font-weight="700" fill="#ffffff">鈔安心</text>
+    <text x="80" y="160" font-family="'Noto Sans TC', sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">透明費用・安心借貸</text>
+    
+    <!-- Brand 3 -->
+    <rect x="0" y="200" width="380" height="80" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <circle cx="40" cy="240" r="24" fill="rgba(52,152,219,0.2)"/>
+    <text x="40" y="248" font-size="24" text-anchor="middle">🍀</text>
+    <text x="80" y="235" font-family="'Noto Serif TC', serif" font-size="24" font-weight="700" fill="#ffffff">貸好運</text>
+    <text x="80" y="260" font-family="'Noto Sans TC', sans-serif" font-size="16" fill="rgba(255,255,255,0.6)">靈活額度・好運降臨</text>
+  </g>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="580" width="1200" height="50" fill="rgba(200,163,78,0.1)"/>
+  <text x="600" y="612" 
+        font-family="'Noto Sans TC', sans-serif" 
         font-size="18" 
-        font-weight="400" 
         text-anchor="middle" 
-        fill="#c8a34e" 
-        letter-spacing="4">QUAN DAI TONG</text>
+        fill="#c8a34e">營業時間：週一至週日 11:00 - 22:00 ｜ 線上諮詢立即辦理</text>
 </svg>

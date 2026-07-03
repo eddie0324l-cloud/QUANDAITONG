@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="generator" content="全貸通">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://eddie0324l-cloud.github.io; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://static.liff.line.me; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com https://www.clarity.ms; connect-src 'self' https://www.clarity.ms https://*.clarity.ms https://docs.google.com; frame-src https://line.me https://liff.line;">
 
 <!-- Primary Meta Tags -->
 <title>全貸通｜全台民間小額借貸服務 — 急速金・鈔安心・貸好運｜快速審核・當天撥款</title>
@@ -20,8 +20,13 @@
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="bingbot" content="index, follow">
 <link rel="canonical" href="https://eddie0324l-cloud.github.io/QUANDAITONG/">
+<link rel="sitemap" type="application/xml" href="sitemap.xml">
 <link rel="alternate" hreflang="zh-TW" href="https://eddie0324l-cloud.github.io/QUANDAITONG/">
 <link rel="alternate" hreflang="x-default" href="https://eddie0324l-cloud.github.io/QUANDAITONG/">
+<meta name="geo.region" content="TW">
+<meta name="geo.placename" content="台灣">
+<meta name="geo.position" content="23.973937;120.982018">
+<meta name="ICBM" content="23.973937, 120.982018">
 
 <!-- Open Graph / Facebook / LINE -->
 <meta property="og:type" content="website">
@@ -429,6 +434,8 @@
 <link rel="dns-prefetch" href="https://social-plugins.line.me">
 <link rel="dns-prefetch" href="https://www.facebook.com">
 <link rel="prefetch" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;600;700;900&display=swap">
+<link rel="prefetch" href="privacy.html">
+<link rel="prefetch" href="terms.html">
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="logo.svg">
@@ -584,10 +591,10 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .process-step{text-align:center;padding:36px 24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);transition:var(--transition)}
 .process-step:hover{background:rgba(255,255,255,.08);border-color:rgba(200,163,78,.2)}
-.process-num{font-family:'Noto Serif TC',serif;font-size:48px;font-weight:900;color:rgba(200,163,78,.2);margin-bottom:12px}
+.process-num{font-family:'Noto Serif TC',serif;font-size:48px;font-weight:900;color:var(--gold-light);margin-bottom:12px;text-shadow:0 2px 12px rgba(200,163,78,.3)}
 .process-step-icon{font-size:36px;margin-bottom:16px}
-.process-step h4{font-size:18px;color:var(--white);margin-bottom:8px;font-weight:700}
-.process-step p{font-size:14px;color:rgba(255,255,255,.75);line-height:1.8}
+.process-step h3,.process-step h4{font-size:18px;color:var(--white);margin-bottom:8px;font-weight:700}
+.process-step p{font-size:14px;color:rgba(255,255,255,.8);line-height:1.8}
 
 /* ADVANTAGES */
 .advantages{background:var(--white)}
@@ -803,6 +810,9 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 </head>
 <body>
 
+<!-- SKIP LINK FOR ACCESSIBILITY -->
+<a href="#main-content" style="position:absolute;top:-40px;left:0;background:#0b1d3a;color:#fff;padding:8px 16px;z-index:10000;font-size:14px;transition:top .3s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">跳至主要內容</a>
+
 <!-- URGENCY BANNER -->
 <div class="urgency-banner" id="urgencyBanner">
   <div class="urgency-banner-content">
@@ -833,7 +843,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
   </div>
 </nav>
 
-<main>
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero" id="hero" aria-labelledby="hero-title">
@@ -1260,18 +1270,21 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
           <li><a href="#process">申辦流程</a></li>
           <li><a href="#faq">常見問題</a></li>
           <li><a href="#coverage">服務範圍</a></li>
+          <li><a href="jisujin.html">急速金</a></li>
+          <li><a href="chaoanxin.html">鈔安心</a></li>
+          <li><a href="daihaoyun.html">貸好運</a></li>
         </ul>
       </div>
       <div>
         <h4>服務縣市</h4>
         <ul class="footer-links" aria-label="服務縣市">
-          <li><a>台北市借款</a></li>
-          <li><a>新北市借款</a></li>
-          <li><a>桃園市借款</a></li>
-          <li><a>台中市借款</a></li>
-          <li><a>台南市借款</a></li>
-          <li><a>高雄市借款</a></li>
-          <li><a>全台含離島服務</a></li>
+          <li><a href="#coverage">台北市借款</a></li>
+          <li><a href="#coverage">新北市借款</a></li>
+          <li><a href="#coverage">桃園市借款</a></li>
+          <li><a href="#coverage">台中市借款</a></li>
+          <li><a href="#coverage">台南市借款</a></li>
+          <li><a href="#coverage">高雄市借款</a></li>
+          <li><a href="#coverage">全台含離島服務</a></li>
         </ul>
       </div>
     </div>
@@ -1660,12 +1673,28 @@ function shareToFacebook() {
 (function loadCmsConfig() {
   if (typeof window.CMS_DATA === 'undefined') return;
   const d = window.CMS_DATA;
+  // Safe URL validator - only allow http/https URLs
+  function isSafeUrl(url) {
+    if (typeof url !== 'string') return false;
+    return /^https?:\/\//i.test(url);
+  }
   // Apply hero changes
   if (d.hero) {
     const badge = document.querySelector('.hero-badge span');
     if (badge && d.hero.badge) badge.textContent = d.hero.badge;
     const h1 = document.getElementById('hero-title');
-    if (h1 && d.hero.title1) h1.innerHTML = d.hero.title1 + '<br>' + (d.hero.title2||'') + '<span class="gold">' + (d.hero.titleHighlight||'') + '</span>';
+    if (h1 && d.hero.title1) {
+      h1.textContent = '';
+      h1.appendChild(document.createTextNode(d.hero.title1));
+      h1.appendChild(document.createElement('br'));
+      if (d.hero.title2) h1.appendChild(document.createTextNode(d.hero.title2));
+      if (d.hero.titleHighlight) {
+        const goldSpan = document.createElement('span');
+        goldSpan.className = 'gold';
+        goldSpan.textContent = d.hero.titleHighlight;
+        h1.appendChild(goldSpan);
+      }
+    }
     const sub = document.querySelector('.hero-sub');
     if (sub && d.hero.subtitle) sub.textContent = d.hero.subtitle;
   }
@@ -1674,23 +1703,23 @@ function shareToFacebook() {
     const aboutTitle = document.getElementById('about-title');
     if (aboutTitle && d.about.title) aboutTitle.textContent = d.about.title;
   }
-  // Apply image changes
+  // Apply image changes (with URL validation)
   if (d.images) {
     const heroBgImg = document.querySelector('.hero-bg img');
-    if (heroBgImg && d.images.heroBg) heroBgImg.src = d.images.heroBg;
+    if (heroBgImg && d.images.heroBg && isSafeUrl(d.images.heroBg)) heroBgImg.src = d.images.heroBg;
     const aboutImg = document.querySelector('.about-image img');
-    if (aboutImg && d.images.aboutImg) aboutImg.src = d.images.aboutImg;
+    if (aboutImg && d.images.aboutImg && isSafeUrl(d.images.aboutImg)) aboutImg.src = d.images.aboutImg;
     const processBgImg = document.querySelector('.process-bg img');
-    if (processBgImg && d.images.processBg) processBgImg.src = d.images.processBg;
+    if (processBgImg && d.images.processBg && isSafeUrl(d.images.processBg)) processBgImg.src = d.images.processBg;
     const coverageBgImg = document.querySelector('.coverage-bg img');
-    if (coverageBgImg && d.images.coverageBg) coverageBgImg.src = d.images.coverageBg;
+    if (coverageBgImg && d.images.coverageBg && isSafeUrl(d.images.coverageBg)) coverageBgImg.src = d.images.coverageBg;
     const ctaBgImg = document.querySelector('.cta-bg img');
-    if (ctaBgImg && d.images.ctaBg) ctaBgImg.src = d.images.ctaBg;
+    if (ctaBgImg && d.images.ctaBg && isSafeUrl(d.images.ctaBg)) ctaBgImg.src = d.images.ctaBg;
   }
 })();
 </script>
 
-<!-- CMS Config (auto-generated by admin panel) -->
+<!-- CMS Config -->
 <script src="cms-config.js" onerror=""></script>
 
 <!-- FLOATING CTA -->

@@ -1,41 +1,45 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>安全連線中...</title>
-    <script src="https://static.liff.line.me/edge/2/sdk.js"></script>
-</head>
-<body style="background-color: #f5f5f7; font-family: sans-serif;">
-    <div style="text-align: center; margin-top: 40vh;">
-        <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #e0e0e0; border-top: 4px solid #06C755; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-        <p style="color: #666; margin-top: 15px; font-size: 14px;">正在建立安全諮詢通道，請稍候...</p>
-    </div>
-
-    <form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdt21IXIq1DaquwX9aaM94nkZy-uN80NAGpNk7bCtDkB6eFzw/formResponse" method="POST" target="hidden_iframe" style="display:none;">
-        <input type="text" name="entry.1273118510" id="field_id">
-        <input type="text" name="entry.1354584222" id="field_name">
-        <input type="text" name="entry.2035431856" value="急速金">
-    </form>
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-
-    <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
-    <script>
-        const maxWait = setTimeout(() => { go(); }, 1500);
-
-        liff.init({ liffId: "2010569426-vgpGBjL5" }).then(() => {
-            if (liff.isLoggedIn()) {
-                liff.getProfile().then(p => {
-                    document.getElementById('field_id').value = p.userId;
-                    document.getElementById('field_name').value = p.displayName;
-                    
-                    document.getElementById('googleForm').submit();
-                    setTimeout(() => { clearTimeout(maxWait); go(); }, 400);
-                }).catch(() => { go(); });
-            } else { go(); }
-        }).catch(() => { go(); });
-
-        function go() { window.location.href = "https://line.me/R/ti/p/@332flaqc?oat__id=6859299"; }
-    </script>
-</body>
-</html>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0b1d3a"/>
+      <stop offset="100%" style="stop-color:#132d54"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0c675"/>
+      <stop offset="100%" style="stop-color:#a07c2a"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative circle -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.3"/>
+  
+  <!-- Main character -->
+  <text x="256" y="300" 
+        font-family="'Noto Serif TC', 'PMingLiU', serif" 
+        font-size="220" 
+        font-weight="900" 
+        text-anchor="middle" 
+        fill="url(#goldGrad)">貸</text>
+  
+  <!-- Brand name -->
+  <text x="256" y="420" 
+        font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" 
+        font-size="48" 
+        font-weight="700" 
+        text-anchor="middle" 
+        fill="#ffffff" 
+        letter-spacing="12">全貸通</text>
+  
+  <!-- Subtitle -->
+  <text x="256" y="460" 
+        font-family="'Noto Sans TC', 'Microsoft JhengHei', sans-serif" 
+        font-size="18" 
+        font-weight="400" 
+        text-anchor="middle" 
+        fill="#c8a34e" 
+        letter-spacing="4">QUAN DAI TONG</text>
+</svg>
