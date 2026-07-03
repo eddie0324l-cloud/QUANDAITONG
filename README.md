@@ -68,29 +68,6 @@
 
 ---
 
-## 網站架構
-
-```
-QUANDAITONG/
-├── index.html          # 首頁
-├── privacy.html        # 隱私政策
-├── terms.html          # 服務條款
-├── jisujin.html        # 急速金 LINE 中繼頁
-├── chaoanxin.html      # 鈔安心 LINE 中繼頁
-├── daihaoyun.html      # 貸好運 LINE 中繼頁
-├── 404.html            # 自訂 404 錯誤頁面
-├── logo.svg            # 網站 Logo
-├── og-image.svg        # Open Graph 分享圖片
-├── robots.txt          # 爬蟲規則
-├── sitemap.xml         # 網站地圖
-├── .nojekyll           # GitHub Pages 設定
-├── README.md           # 本檔案
-├── BingSiteAuth.xml    # Bing 驗證檔案
-└── google6a7d...html   # Google 驗證檔案
-```
-
----
-
 ## 技術資訊
 
 - **部署平台：** GitHub Pages
