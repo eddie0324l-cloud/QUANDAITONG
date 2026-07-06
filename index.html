@@ -1755,69 +1755,74 @@ function shareToFacebook() {
 <script>
 (function(){
   // Helper: send GA4 event
-  function trackEvent(eventName, params) {
+  function trackGA4(eventName, params) {
     if (typeof gtag === 'function') {
       gtag('event', eventName, params);
     }
   }
 
-  // Track LINE consultation button clicks (conversion event)
-  document.querySelectorAll('a.brand-btn[href*="liff.line.me"]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var brandName = '';
-      var card = btn.closest('.brand-card');
-      if (card) {
-        var nameEl = card.querySelector('.brand-name');
-        brandName = nameEl ? nameEl.textContent.trim() : 'unknown';
-      }
-      trackEvent('line_consultation_click', {
-        brand_name: brandName,
-        link_url: btn.href,
-        event_category: 'conversion',
-        event_label: brandName + ' LINE 諮詢'
-      });
+  // Patch showTrackingModal to fire GA4 conversion event
+  var _origShowTrackingModal = window.showTrackingModal;
+  window.showTrackingModal = function(brandName, url) {
+    trackGA4('line_consultation_click', {
+      brand_name: brandName,
+      link_url: url,
+      event_category: 'conversion',
+      event_label: brandName + ' LINE 諮詢'
     });
-  });
+    if (_origShowTrackingModal) _origShowTrackingModal(brandName, url);
+  };
 
-  // Track brand "了解更多" button clicks
-  document.querySelectorAll('a.brand-btn-about').forEach(function(btn) {
-    btn.addEventListener('click', function() {
+  // Patch goToLine to fire GA4 event when user actually proceeds to LINE
+  var _origGoToLine = window.goToLine;
+  window.goToLine = function() {
+    trackGA4('line_proceed', {
+      brand_name: window.pendingBrandName || '',
+      link_url: window.pendingLineUrl || '',
+      event_category: 'conversion',
+      event_label: (window.pendingBrandName || '') + ' 前往LINE'
+    });
+    if (_origGoToLine) _origGoToLine();
+  };
+
+  // Event delegation: track "了解更多" brand clicks (dynamically rendered)
+  document.addEventListener('click', function(e) {
+    var aboutBtn = e.target.closest('a.brand-btn-about');
+    if (aboutBtn) {
+      var card = aboutBtn.closest('.brand-card');
       var brandName = '';
-      var card = btn.closest('.brand-card');
       if (card) {
         var nameEl = card.querySelector('.brand-name');
         brandName = nameEl ? nameEl.textContent.trim() : 'unknown';
       }
-      trackEvent('brand_learn_more_click', {
+      trackGA4('brand_learn_more_click', {
         brand_name: brandName,
-        link_url: btn.href,
+        link_url: aboutBtn.href,
         event_category: 'engagement',
         event_label: brandName + ' 了解更多'
       });
-    });
+    }
   });
 
   // Track floating CTA button click
-  var floatingBtn = document.querySelector('.floating-cta-btn');
-  if (floatingBtn) {
-    floatingBtn.addEventListener('click', function() {
-      trackEvent('floating_cta_click', {
-        event_category: 'conversion',
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.floating-cta-btn')) {
+      trackGA4('floating_cta_click', {
+        event_category: 'engagement',
         event_label: '立即諮詢浮動按鈕'
       });
-    });
-  }
+    }
+  });
 
   // Track nav CTA "立即諮詢" click
-  var navCta = document.querySelector('.nav-cta');
-  if (navCta) {
-    navCta.addEventListener('click', function() {
-      trackEvent('nav_cta_click', {
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.nav-cta')) {
+      trackGA4('nav_cta_click', {
         event_category: 'engagement',
         event_label: '導航列立即諮詢'
       });
-    });
-  }
+    }
+  });
 })();
 </script>
 
