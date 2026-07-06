@@ -1751,6 +1751,76 @@ function shareToFacebook() {
 <!-- CMS Config -->
 <script src="cms-config.js" onerror=""></script>
 
+<!-- GA4 Event Tracking -->
+<script>
+(function(){
+  // Helper: send GA4 event
+  function trackEvent(eventName, params) {
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params);
+    }
+  }
+
+  // Track LINE consultation button clicks (conversion event)
+  document.querySelectorAll('a.brand-btn[href*="liff.line.me"]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var brandName = '';
+      var card = btn.closest('.brand-card');
+      if (card) {
+        var nameEl = card.querySelector('.brand-name');
+        brandName = nameEl ? nameEl.textContent.trim() : 'unknown';
+      }
+      trackEvent('line_consultation_click', {
+        brand_name: brandName,
+        link_url: btn.href,
+        event_category: 'conversion',
+        event_label: brandName + ' LINE 諮詢'
+      });
+    });
+  });
+
+  // Track brand "了解更多" button clicks
+  document.querySelectorAll('a.brand-btn-about').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var brandName = '';
+      var card = btn.closest('.brand-card');
+      if (card) {
+        var nameEl = card.querySelector('.brand-name');
+        brandName = nameEl ? nameEl.textContent.trim() : 'unknown';
+      }
+      trackEvent('brand_learn_more_click', {
+        brand_name: brandName,
+        link_url: btn.href,
+        event_category: 'engagement',
+        event_label: brandName + ' 了解更多'
+      });
+    });
+  });
+
+  // Track floating CTA button click
+  var floatingBtn = document.querySelector('.floating-cta-btn');
+  if (floatingBtn) {
+    floatingBtn.addEventListener('click', function() {
+      trackEvent('floating_cta_click', {
+        event_category: 'conversion',
+        event_label: '立即諮詢浮動按鈕'
+      });
+    });
+  }
+
+  // Track nav CTA "立即諮詢" click
+  var navCta = document.querySelector('.nav-cta');
+  if (navCta) {
+    navCta.addEventListener('click', function() {
+      trackEvent('nav_cta_click', {
+        event_category: 'engagement',
+        event_label: '導航列立即諮詢'
+      });
+    });
+  }
+})();
+</script>
+
 <!-- FLOATING CTA -->
 <div class="floating-cta" style="opacity:0;transform:translateY(20px);transition:all .5s ease">
   <span class="floating-cta-label">立即諮詢專人</span>
