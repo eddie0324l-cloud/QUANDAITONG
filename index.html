@@ -855,8 +855,9 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
       <a href="#about">關於我們</a>
       <a href="#brands">服務方案</a>
       <a href="#process">申辦流程</a>
+      <a href="#news">最新消息</a>
       <a href="#faq">常見問題</a>
-      <a href="#brands" class="nav-cta">立即諮詢</a>
+      <a href="#consultation" class="nav-cta">免費諮詢</a>
     </div>
     <div class="nav-mobile" id="navToggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="選單切換">
       <span></span><span></span><span></span>
@@ -1261,6 +1262,152 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
         <div style="font-size:48px;margin-bottom:12px">🏪</div>
         <h3 style="font-size:18px;color:var(--navy);margin-bottom:8px;font-family:'Noto Serif TC',serif">小規模商家</h3>
         <p style="font-size:14px;color:var(--text-light);line-height:1.8">小型商家、攤販、個體戶等。提供營運週轉金，協助業務擴張。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTATION FORM -->
+<section class="section consultation-form" id="consultation" style="background:var(--navy);padding:80px 0" aria-labelledby="consultation-title">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag" style="background:rgba(200,163,78,.15)">✦ 免費諮詢</div>
+      <h2 class="section-title" id="consultation-title" style="color:var(--white);font-size:32px">填表諮詢 — 專人為您服務</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,.7)">留下您的聯絡方式，我們將在最短時間內與您聯繫，提供最適合的借款方案。</p>
+    </div>
+    <form id="consultationForm" style="max-width:600px;margin:0 auto;display:grid;gap:20px" onsubmit="return handleConsultSubmit(event)">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <label style="display:block;color:rgba(255,255,255,.8);font-size:14px;margin-bottom:6px;font-weight:600">姓名 *</label>
+          <input type="text" name="name" required placeholder="請輸入您的姓名" style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:15px;outline:none;transition:border .3s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'">
+        </div>
+        <div>
+          <label style="display:block;color:rgba(255,255,255,.8);font-size:14px;margin-bottom:6px;font-weight:600">行動電話 *</label>
+          <input type="tel" name="phone" required placeholder="09XX-XXX-XXX" pattern="09\d{2}-?\d{3}-?\d{3}" style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:15px;outline:none;transition:border .3s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <label style="display:block;color:rgba(255,255,255,.8);font-size:14px;margin-bottom:6px;font-weight:600">資金需求</label>
+          <select name="amount" style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:15px;outline:none;appearance:none">
+            <option value="" style="color:#333">請選擇</option>
+            <option value="10萬以下" style="color:#333">10萬以下</option>
+            <option value="10-30萬" style="color:#333">10-30萬</option>
+            <option value="30-50萬" style="color:#333">30-50萬</option>
+            <option value="50-100萬" style="color:#333">50-100萬</option>
+            <option value="100萬以上" style="color:#333">100萬以上</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;color:rgba(255,255,255,.8);font-size:14px;margin-bottom:6px;font-weight:600">方便聯絡時間</label>
+          <select name="contact_time" style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:15px;outline:none;appearance:none">
+            <option value="" style="color:#333">請選擇</option>
+            <option value="上午 9-12 點" style="color:#333">上午 9-12 點</option>
+            <option value="下午 12-18 點" style="color:#333">下午 12-18 點</option>
+            <option value="晚上 18-22 點" style="color:#333">晚上 18-22 點</option>
+            <option value="隨時皆可" style="color:#333">隨時皆可</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label style="display:block;color:rgba(255,255,255,.8);font-size:14px;margin-bottom:6px;font-weight:600">備註說明</label>
+        <textarea name="note" rows="3" placeholder="請簡述您的需求（選填）" style="width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.08);color:#fff;font-size:15px;outline:none;resize:vertical;transition:border .3s" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(255,255,255,.15)'"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:17px;padding:18px;margin-top:8px">
+        提交諮詢 →
+      </button>
+      <p style="text-align:center;color:rgba(255,255,255,.5);font-size:13px;margin-top:4px">我們絕不會將您的資料提供給第三方，詳見<a href="privacy.html" style="color:var(--gold-light);text-decoration:underline">隱私政策</a></p>
+    </form>
+    <div id="consultationSuccess" style="display:none;text-align:center;padding:40px">
+      <div style="font-size:64px;margin-bottom:16px">✅</div>
+      <h3 style="color:var(--white);font-size:24px;margin-bottom:12px">諮詢表單已送出</h3>
+      <p style="color:rgba(255,255,255,.7);font-size:16px">感謝您的諮詢，專人將於您指定的時間與您聯繫。</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS / BLOG SECTION -->
+<section class="section news" id="news" style="background:var(--white);padding:80px 0" aria-labelledby="news-title">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">✦ 最新消息</div>
+      <h2 class="section-title" id="news-title" style="font-size:32px">借款知識與最新資訊</h2>
+      <p class="section-desc">掌握最新借款趨勢與實用知識，做出明智的財務決策</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;max-width:1000px;margin:0 auto">
+      <article style="background:var(--cream);border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(0,0,0,.04);transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="padding:28px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+            <span style="background:rgba(200,163,78,.15);color:var(--gold-dark);padding:4px 10px;border-radius:100px;font-size:12px;font-weight:600">知識</span>
+            <span style="color:var(--text-light);font-size:13px">2026.07.01</span>
+          </div>
+          <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:var(--navy);margin-bottom:10px;line-height:1.5">小額借款過件率怎麼提升？3 個必學技巧</h3>
+          <p style="font-size:14px;color:var(--text-light);line-height:1.8">掌握三大技巧：維護信用紀錄、準備收入財力證明、挑選合適借款管道，有效提升過件率與降低利率。</p>
+        </div>
+      </article>
+      <article style="background:var(--cream);border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(0,0,0,.04);transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="padding:28px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+            <span style="background:rgba(200,163,78,.15);color:var(--gold-dark);padding:4px 10px;border-radius:100px;font-size:12px;font-weight:600">指南</span>
+            <span style="color:var(--text-light);font-size:13px">2026.06.25</span>
+          </div>
+          <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:var(--navy);margin-bottom:10px;line-height:1.5">快速借錢不用等！線上借錢平台完整攻略</h3>
+          <p style="font-size:14px;color:var(--text-light);line-height:1.8">隨著金融科技發展，線上借款流程更加便利。了解如何選擇安全可靠的線上借錢平台，避免詐騙風險。</p>
+        </div>
+      </article>
+      <article style="background:var(--cream);border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(0,0,0,.04);transition:transform .3s,box-shadow .3s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 40px rgba(0,0,0,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="padding:28px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+            <span style="background:rgba(200,163,78,.15);color:var(--gold-dark);padding:4px 10px;border-radius:100px;font-size:12px;font-weight:600">公告</span>
+            <span style="color:var(--text-light);font-size:13px">2026.06.18</span>
+          </div>
+          <h3 style="font-family:'Noto Serif TC',serif;font-size:18px;color:var(--navy);margin-bottom:10px;line-height:1.5">信貸試算指南：掌握還款金額的必備工具</h3>
+          <p style="font-size:14px;color:var(--text-light);line-height:1.8">信貸試算能在貸款申請前，幫助您清楚了解每月應繳金額、總利息支出與還款壓力，有效規劃財務。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL DISCLAIMER & ANTI-FRAUD -->
+<section class="section legal-disclaimer" id="legal" style="background:var(--cream);padding:60px 0;border-top:1px solid rgba(0,0,0,.06)" aria-labelledby="legal-title">
+  <div class="container" style="max-width:900px">
+    <h2 class="sr-only" id="legal-title">借款條件須知與防詐騙提醒</h2>
+
+    <!-- 借款條件須知 -->
+    <div style="background:var(--white);border-radius:var(--radius-lg);padding:32px;margin-bottom:24px;border:1px solid rgba(0,0,0,.06)">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:20px;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:10px">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:8px;font-size:16px">📋</span>
+        借款條件須知
+      </h3>
+      <div style="font-size:14px;color:var(--text-light);line-height:2">
+        <p style="margin-bottom:12px"><strong style="color:var(--navy)">貸款年限：</strong>最短 1 年，最長 7 年（84 期），依個人條件及方案而異。</p>
+        <p style="margin-bottom:12px"><strong style="color:var(--navy)">貸款利率：</strong>年利率最低 1.68% 起，最高 15.99%，實際利率依個人信用條件、貸款產品及核貸結果而定。</p>
+        <p style="margin-bottom:12px"><strong style="color:var(--navy)">總費用年百分率：</strong>最低 1% 至最高 16%，依主管機關備查標準計算。</p>
+        <p style="margin-bottom:12px"><strong style="color:var(--navy)">借款範例：</strong>假設貸款金額 30 萬元，貸款期間 5 年，貸款利率 6.25%，其他相關費用 9,000 元，則總費用年百分率為 7.59%，每月應繳金額約 5,835 元。</p>
+        <p><strong style="color:var(--navy)">注意事項：</strong>本網站資料僅供參考，實際利率及貸款方案以貸款申請書及約定書為準。各品牌保留核貸額度、適用利率及核貸與否之權利。</p>
+      </div>
+    </div>
+
+    <!-- 防範詐騙提醒 -->
+    <div style="background:linear-gradient(135deg,#fff5f5,#fff0f0);border-radius:var(--radius-lg);padding:32px;border:1px solid rgba(231,76,60,.15)">
+      <h3 style="font-family:'Noto Serif TC',serif;font-size:20px;color:#c0392b;margin-bottom:16px;display:flex;align-items:center;gap:10px">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:linear-gradient(135deg,#e74c3c,#c0392b);border-radius:8px;font-size:16px;color:#fff">⚠️</span>
+        防範詐騙提醒
+      </h3>
+      <div style="font-size:14px;color:#555;line-height:2">
+        <p style="margin-bottom:8px;font-weight:600;color:#c0392b">符合以下任一情況，均可能為詐騙行為：</p>
+        <ul style="list-style:none;padding:0;display:grid;gap:8px">
+          <li style="display:flex;align-items:flex-start;gap:8px"><span style="color:#e74c3c;font-weight:bold;min-width:20px">✗</span>要求提供銀行存摺及提款卡</li>
+          <li style="display:flex;align-items:flex-start;gap:8px"><span style="color:#e74c3c;font-weight:bold;min-width:20px">✗</span>任何名義的事先收費（手續費、保證金、開辦費等）</li>
+          <li style="display:flex;align-items:flex-start;gap:8px"><span style="color:#e74c3c;font-weight:bold;min-width:20px">✗</span>要求購買儲值點數或禮品卡</li>
+          <li style="display:flex;align-items:flex-start;gap:8px"><span style="color:#e74c3c;font-weight:bold;min-width:20px">✗</span>要求提供門號或手機驗證碼</li>
+          <li style="display:flex;align-items:flex-start;gap:8px"><span style="color:#e74c3c;font-weight:bold;min-width:20px">✗</span>指示操作 ATM 或匯款至個人帳戶</li>
+        </ul>
+        <div style="margin-top:16px;padding:16px;background:rgba(255,255,255,.7);border-radius:10px;border:1px solid rgba(231,76,60,.1)">
+          <p style="font-weight:700;color:var(--navy);margin-bottom:6px">全貸通鄭重聲明：</p>
+          <p>本公司撥款前<strong style="color:#c0392b">絕不收取任何費用</strong>。如遇疑似詐騙，請立即撥打反詐騙專線 <strong style="color:#c0392b">165</strong> 報案。</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1824,6 +1971,37 @@ function shareToFacebook() {
     }
   });
 })();
+
+// Consultation form handler
+function handleConsultSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('consultationForm');
+  var formData = new FormData(form);
+  var data = {};
+  formData.forEach(function(value, key) { data[key] = value; });
+
+  // GA4 event for form submission (conversion)
+  if (typeof gtag === 'function') {
+    gtag('event', 'consultation_form_submit', {
+      event_category: 'conversion',
+      event_label: '填表諮詢提交',
+      amount_range: data.amount || '未選擇',
+      contact_time: data.contact_time || '未選擇'
+    });
+  }
+
+  // Store in localStorage as backup
+  var submissions = JSON.parse(localStorage.getItem('qdt_consultations') || '[]');
+  data.timestamp = new Date().toISOString();
+  submissions.push(data);
+  localStorage.setItem('qdt_consultations', JSON.stringify(submissions));
+
+  // Show success message
+  form.style.display = 'none';
+  document.getElementById('consultationSuccess').style.display = 'block';
+
+  return false;
+}
 </script>
 
 <!-- FLOATING CTA -->
