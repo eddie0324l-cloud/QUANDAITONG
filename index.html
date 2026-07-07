@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://eddie0324l-cloud.github.io; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://*.clarity.ms https://static.liff.line.me https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.clarity.ms https://*.clarity.ms https://www.googletagmanager.com https://www.google-analytics.com https://*.bing.com; connect-src 'self' https://www.clarity.ms https://*.clarity.ms https://docs.google.com https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://www.google.com https://www.googletagmanager.com; frame-src https://line.me https://liff.line;">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https://eddie0324l-cloud.github.io; script-src 'self' 'unsafe-inline' https://www.clarity.ms https://*.clarity.ms https://static.liff.line.me https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.clarity.ms https://*.clarity.ms https://www.googletagmanager.com https://www.google-analytics.com https://*.bing.com; connect-src 'self' https://www.clarity.ms https://*.clarity.ms https://docs.google.com https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://www.google.com https://www.googletagmanager.com; frame-src https://line.me https://liff.line https://script.google.com https://script.googleusercontent.com; form-action 'self' https://script.google.com https://script.googleusercontent.com;">
 <link rel="manifest" href="manifest.json">
     
 <!-- Google tag (gtag.js) -->
@@ -1318,6 +1318,7 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
       </button>
       <p style="text-align:center;color:rgba(255,255,255,.5);font-size:13px;margin-top:4px">我們絕不會將您的資料提供給第三方，詳見<a href="privacy.html" style="color:var(--gold-light);text-decoration:underline">隱私政策</a></p>
     </form>
+    <iframe name="consultationSubmitFrame" id="consultationSubmitFrame" title="諮詢表單送出" style="display:none"></iframe>
     <div id="consultationSuccess" style="display:none;text-align:center;padding:40px">
       <div style="font-size:64px;margin-bottom:16px">✅</div>
       <h3 style="color:var(--white);font-size:24px;margin-bottom:12px">諮詢表單已送出</h3>
@@ -1973,12 +1974,48 @@ function shareToFacebook() {
 })();
 
 // Consultation form handler
+const CONSULTATION_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyevTMdnwmH_yt3wn1yIODUCTNR_26ZEzCcmmiImXvBaQYTPQR6JIbaP-43KyoqeoR1iA/exec';
+
+function isConsultationEndpointConfigured() {
+  return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(CONSULTATION_APPS_SCRIPT_URL);
+}
+
+function submitConsultationToAppsScript(data) {
+  if (!isConsultationEndpointConfigured()) return false;
+
+  var oldForm = document.getElementById('consultationSubmitProxy');
+  if (oldForm) oldForm.remove();
+
+  var submitForm = document.createElement('form');
+  submitForm.id = 'consultationSubmitProxy';
+  submitForm.method = 'POST';
+  submitForm.action = CONSULTATION_APPS_SCRIPT_URL;
+  submitForm.target = 'consultationSubmitFrame';
+  submitForm.style.display = 'none';
+
+  Object.keys(data).forEach(function(key) {
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = data[key] == null ? '' : String(data[key]);
+    submitForm.appendChild(input);
+  });
+
+  document.body.appendChild(submitForm);
+  submitForm.submit();
+  setTimeout(function() { submitForm.remove(); }, 1000);
+  return true;
+}
+
 function handleConsultSubmit(e) {
   e.preventDefault();
   var form = document.getElementById('consultationForm');
   var formData = new FormData(form);
   var data = {};
   formData.forEach(function(value, key) { data[key] = value; });
+  data.source = '全貸通首頁諮詢表單';
+  data.page_url = window.location.href;
+  data.timestamp = new Date().toISOString();
 
   // GA4 event for form submission (conversion)
   if (typeof gtag === 'function') {
@@ -1990,9 +2027,13 @@ function handleConsultSubmit(e) {
     });
   }
 
+  if (!submitConsultationToAppsScript(data)) {
+    alert('表單送出設定尚未完成，請先透過官方 Line 聯繫專人。');
+    return false;
+  }
+
   // Store in localStorage as backup
   var submissions = JSON.parse(localStorage.getItem('qdt_consultations') || '[]');
-  data.timestamp = new Date().toISOString();
   submissions.push(data);
   localStorage.setItem('qdt_consultations', JSON.stringify(submissions));
 
