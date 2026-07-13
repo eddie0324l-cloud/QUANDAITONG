@@ -707,10 +707,12 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
 /* MOBILE STICKY CTA (bottom bar) */
 .mobile-sticky-cta{display:none}
 @media(max-width:768px){
-  .mobile-sticky-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1050;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(11,29,58,0),rgba(11,29,58,.92));pointer-events:none}
-  .mobile-sticky-cta a,.mobile-sticky-cta button{pointer-events:auto;flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#06c755,#04a648);color:#fff;padding:14px 18px;border-radius:999px;font-weight:900;font-size:16px;letter-spacing:.5px;text-decoration:none;box-shadow:0 10px 30px rgba(6,199,85,.45),0 2px 6px rgba(0,0,0,.25);animation:stickyBreathe 2.2s ease-in-out infinite}
+  .mobile-sticky-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:1050;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(11,29,58,0),rgba(11,29,58,.94));pointer-events:none}
+  .mobile-sticky-cta a,.mobile-sticky-cta button{pointer-events:auto;flex:1;display:flex;align-items:center;justify-content:center;gap:7px;color:#fff;padding:13px 10px;border-radius:999px;font-weight:900;font-size:14px;letter-spacing:.2px;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,.28),0 2px 6px rgba(0,0,0,.22);animation:stickyBreathe 2.2s ease-in-out infinite;white-space:nowrap}
+  .mobile-sticky-cta-line{background:linear-gradient(135deg,#06c755,#04a648)}
+  .mobile-sticky-cta-form{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy)!important}
   .mobile-sticky-cta a:active,.mobile-sticky-cta button:active{transform:translateY(1px)}
-  body{padding-bottom:80px}
+  body{padding-bottom:86px}
   /* keep social proof toast above the sticky bar */
   .social-proof-toast{bottom:96px!important}
   /* hide the circular floating CTA on mobile to avoid duplicate CTAs */
@@ -721,12 +723,12 @@ h1,h2,h3,h4{font-family:'Noto Serif TC',serif;line-height:1.4}
   50%{box-shadow:0 14px 40px rgba(6,199,85,.75),0 4px 10px rgba(0,0,0,.28);transform:scale(1.02)}
 }
 
-.floating-cta{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
-.floating-cta-btn{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#06c755,#05b04c);border:none;cursor:pointer;box-shadow:0 8px 32px rgba(6,199,85,.4);display:flex;align-items:center;justify-content:center;transition:var(--transition);animation:ctaPulse 2s infinite}
-.floating-cta-btn:hover{transform:scale(1.1);box-shadow:0 12px 40px rgba(6,199,85,.5)}
-.floating-cta-btn svg{width:32px;height:32px;fill:#fff}
-.floating-cta-label{position:absolute;right:76px;top:50%;transform:translateY(-50%);background:var(--navy);color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:var(--transition)}
-.floating-cta-btn:hover+.floating-cta-label,.floating-cta-label.show{opacity:1}
+.floating-cta{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;gap:10px;align-items:center}
+.floating-cta-btn{min-width:128px;height:54px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.24);display:flex;align-items:center;justify-content:center;gap:8px;padding:0 18px;font-weight:900;font-size:14px;letter-spacing:.5px;transition:var(--transition);animation:ctaPulse 2s infinite;text-decoration:none}
+.floating-cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.28)}
+.floating-cta-btn svg{width:22px;height:22px;fill:currentColor}
+.floating-cta-line{background:linear-gradient(135deg,#06c755,#05b04c);color:#fff}
+.floating-cta-form{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--navy)}
 @keyframes ctaPulse{0%,100%{box-shadow:0 8px 32px rgba(6,199,85,.4)}50%{box-shadow:0 8px 32px rgba(6,199,85,.6),0 0 0 12px rgba(6,199,85,.1)}}
 
 /* SOCIAL PROOF TOAST */
@@ -846,8 +848,8 @@ body{padding-top:44px}
   .footer-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;text-align:center}
   .floating-cta{bottom:16px;right:16px}
-  .floating-cta-btn{width:56px;height:56px}
-  .floating-cta-btn svg{width:28px;height:28px}
+  .floating-cta-btn{min-width:112px;height:50px;padding:0 14px;font-size:13px}
+  .floating-cta-btn svg{width:20px;height:20px}
   .social-proof-toast{left:16px;right:16px;bottom:88px;max-width:none}
   .referral-steps{grid-template-columns:1fr;gap:20px}
   .referral-rewards{flex-direction:column;align-items:center}
@@ -2364,19 +2366,27 @@ function handleConsultSubmit(e) {
 </script>
 
 <!-- MOBILE STICKY BOTTOM CTA -->
-<div class="mobile-sticky-cta" role="region" aria-label="快速填表諮詢">
-  <button type="button" class="form-modal-trigger" data-open-consultation aria-label="開啟填表免費諮詢視窗">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 4H6V5h12v2zm0 5H6v-2h12v2zm-5 5H6v-2h7v2z"/></svg>
-    <span>填表免費諮詢｜專人協助評估</span>
+<div class="mobile-sticky-cta" role="region" aria-label="快速諮詢入口">
+  <a href="https://lin.ee/v6qenM1" target="_blank" rel="noopener" class="mobile-sticky-cta-line" aria-label="立即線上諮詢">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <span>立即線上諮詢</span>
+  </a>
+  <button type="button" class="mobile-sticky-cta-form form-modal-trigger" data-open-consultation aria-label="開啟填表免費諮詢視窗">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 4H6V5h12v2zm0 5H6v-2h12v2zm-5 5H6v-2h7v2z"/></svg>
+    <span>填表諮詢</span>
   </button>
 </div>
 
 <!-- FLOATING CTA -->
 <div class="floating-cta" style="opacity:0;transform:translateY(20px);transition:all .5s ease">
-  <button type="button" class="floating-cta-btn form-modal-trigger" data-open-consultation aria-label="開啟填表免費諮詢視窗">
+  <a href="https://lin.ee/v6qenM1" class="floating-cta-btn floating-cta-line" target="_blank" rel="noopener" aria-label="立即線上諮詢">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <span>立即線上諮詢</span>
+  </a>
+  <button type="button" class="floating-cta-btn floating-cta-form form-modal-trigger" data-open-consultation aria-label="開啟填表免費諮詢視窗">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 4H6V5h12v2zm0 5H6v-2h12v2zm-5 5H6v-2h7v2z"/></svg>
+    <span>填表諮詢</span>
   </button>
-  <span class="floating-cta-label">填表免費諮詢</span>
 </div>
 
 <!-- SOCIAL PROOF TOAST -->
